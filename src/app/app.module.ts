@@ -32,7 +32,7 @@ import { TodoFilterPipe } from './pipes/todo-filter.pipe';
     MatButtonModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [TodoFilterPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

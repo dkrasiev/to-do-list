@@ -1,9 +1,7 @@
-<ul class="todo-list" *ngIf="(todos | todoFilter: filters).length > 0">
-  <li *ngFor="let todo of todos | todoFilter: filters" class="todo-list__item">
+<ul class="todo-list" *ngIf="filteredTodos.length > 0">
+  <li *ngFor="let todo of filteredTodos" class="todo-list__item">
     <app-todo-item [todo]="todo"></app-todo-item>
   </li>
 </ul>
 
-<ng-container *ngIf="(todos | todoFilter: filters).length == 0">
-  No todo found.
-</ng-container>
+<ng-container *ngIf="filteredTodos.length == 0"> No todo found. </ng-container>
