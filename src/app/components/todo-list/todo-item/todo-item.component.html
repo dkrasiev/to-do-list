@@ -1,0 +1,31 @@
+<div
+  class="todo-item"
+  (click)="toggleTodo()"
+  (dblclick)="enterEditMode()"
+  [ngClass]="{ 'edit-mode': editMode, completed: todo.completed }"
+>
+  <ng-container *ngIf="editMode">
+    <input
+      #input
+      type="text"
+      [placeholder]="todo.title"
+      [(ngModel)]="newTitle"
+      (keyup.enter)="saveChanges()"
+      (keyup.escape)="discardChanges()"
+      (focusout)="saveChanges()"
+    />
+  </ng-container>
+  <div class="todo-item__title" *ngIf="!editMode">
+    {{ todo.title }}
+  </div>
+
+  <div class="todo-item__btns">
+    <button
+      mat-icon-button
+      onclick="event.stopPropagation()"
+      (click)="deleteTodo()"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

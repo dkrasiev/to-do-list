@@ -1,0 +1,38 @@
+.title {
+  text-align: center;
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 32px;
+  padding-top: 16px;
+}
+
+.todo-input {
+  margin-bottom: 32px;
+}
+
+.mb-8 {
+  margin-bottom: 32px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+.right-top-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-top-corner > * {
+  margin-bottom: 4px;
+}

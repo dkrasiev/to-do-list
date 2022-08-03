@@ -1,0 +1,36 @@
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  cursor: default;
+}
+
+.todo-item:hover {
+  background-color: lightblue;
+}
+
+.todo-item__btns > * {
+  margin-left: 8px;
+}
+
+input {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 8px;
+  flex: 1;
+}
+
+*:focus {
+  outline: none;
+}
+
+.edit-mode {
+  background-color: coral;
+  text-decoration: none !important;
+}
+
+.completed {
+  text-decoration: line-through;
+}

@@ -1,0 +1,18 @@
+<div class="filter-container">
+  <input
+    type="text"
+    placeholder="search query..."
+    [(ngModel)]="searchQuery"
+    (keyup)="applyFilter()"
+  />
+  <select
+    name="complete"
+    id="complete"
+    (change)="applyFilter()"
+    [(ngModel)]="completeFilter"
+  >
+    <option value="">all</option>
+    <option value="true">completed</option>
+    <option value="false">incompleted</option>
+  </select>
+</div>
