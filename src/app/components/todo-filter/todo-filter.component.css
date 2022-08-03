@@ -16,7 +16,7 @@ select {
 .filter-container {
   display: flex;
   flex-direction: column;
-  width: 800px;
+  width: 100%;
 }
 
 .filter-container > * {
