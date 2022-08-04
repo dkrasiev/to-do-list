@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="2308145437012123216" datatype="html">
+        <source>load todos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1695095851421961550" datatype="html">
+        <source>clear todos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3780113816922968404" datatype="html">
+        <source>todo list</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2703359146244760368" datatype="html">
+        <source>search query...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/todo-filter/todo-filter.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7126464771610287155" datatype="html">
+        <source>all</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/todo-filter/todo-filter.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7510279840486540181" datatype="html">
+        <source>completed</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/todo-filter/todo-filter.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6198098910347835659" datatype="html">
+        <source>incompleted</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/todo-filter/todo-filter.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3219123351825597003" datatype="html">
+        <source>todo name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/todo-input/todo-input.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="272603483500195283" datatype="html">
+        <source>No todo found.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/todo-list/todo-list.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,12 +1,12 @@
 <div class="container">
-  <h1 class="title">{{ "todo list" | titlecase }}</h1>
+  <h1 class="title">{{ title | titlecase }}</h1>
   <app-todo-filter class="mb-4"></app-todo-filter>
   <app-todo-input class="mb-8"></app-todo-input>
   <app-todo-list></app-todo-list>
 
   <div class="right-top-corner">
-    <button mat-button (click)="loadTodos()">load todos</button>
-    <button mat-button (click)="clearTodos()">clear todos</button>
+    <button mat-button (click)="loadTodos()" i18n>load todos</button>
+    <button mat-button (click)="clearTodos()" i18n>clear todos</button>
     <button mat-icon-button style="align-self: flex-end">
       <mat-icon>help</mat-icon>
     </button>

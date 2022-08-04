@@ -26,6 +26,7 @@ export class TodoService {
 
   clearTodos() {
     this.todos$.next([]);
+    localStorage.setItem('todos', JSON.stringify(this.todos$.value));
   }
 
   setTodo(id: number, todo: ITodo) {

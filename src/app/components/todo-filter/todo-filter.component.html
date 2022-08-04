@@ -1,5 +1,6 @@
 <div class="filter-container">
   <input
+    i18n-placeholder
     type="text"
     placeholder="search query..."
     [(ngModel)]="searchQuery"
@@ -11,8 +12,8 @@
     (change)="applyFilter()"
     [(ngModel)]="completeFilter"
   >
-    <option value="">all</option>
-    <option value="true">completed</option>
-    <option value="false">incompleted</option>
+    <option value="" i18n>all</option>
+    <option value="true" i18n>completed</option>
+    <option value="false" i18n>incompleted</option>
   </select>
 </div>
