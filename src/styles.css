@@ -12,6 +12,29 @@ html,
 body {
   height: 100%;
 }
+
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body.dark-mode {
+  background-color: #2d3436;
+  color: #dfe6e9;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background-color: #2d3436;
+  color: #dfe6e9;
+}
+
+body.light-mode {
+  background-color: #dfe6e9;
+  color: #2d3436;
+}
+
+body.light-mode input,
+body.light-mode select {
+  background-color: #dfe6e9;
+  color: #2d3436;
 }

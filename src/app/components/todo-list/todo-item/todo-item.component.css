@@ -6,10 +6,6 @@
   cursor: default;
 }
 
-.todo-item:hover {
-  background-color: lightblue;
-}
-
 .todo-item__btns > * {
   margin-left: 8px;
 }

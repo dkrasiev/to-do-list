@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DarkModeService } from 'angular-dark-mode';
 import { TodoService } from './services/todo.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { TodoService } from './services/todo.service';
 export class AppComponent {
   title = $localize`:@@appTitle:todo list`;
 
-  constructor(private todoService: TodoService) {}
+  constructor(
+    private todoService: TodoService,
+    private darkmodeService: DarkModeService
+  ) {}
 
   loadTodos() {
     this.todoService.loadTodos().subscribe();
@@ -17,5 +21,9 @@ export class AppComponent {
 
   clearTodos() {
     this.todoService.clearTodos();
+  }
+
+  toggleDarkMode() {
+    this.darkmodeService.toggle();
   }
 }

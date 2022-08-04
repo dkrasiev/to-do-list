@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container dark-mode">
   <h1 class="title">{{ title | titlecase }}</h1>
   <app-todo-filter></app-todo-filter>
   <!-- <app-todo-input></app-todo-input> -->
@@ -9,15 +9,18 @@
     <button i18n="@@loadTodos" mat-button (click)="loadTodos()">
       load todos
     </button>
-    <button
-      i18n="Clear button|Clearing todos@@clearTodos"
-      mat-button
-      (click)="clearTodos()"
-    >
+    <button i18n="@@clearTodos" mat-button (click)="clearTodos()">
       clear todos
     </button>
     <button mat-icon-button style="align-self: flex-end">
       <mat-icon>help</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      style="align-self: flex-end"
+      (click)="toggleDarkMode()"
+    >
+      <mat-icon>light_mode</mat-icon>
     </button>
   </div>
 </div>
