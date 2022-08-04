@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
+## Github pages
+
+This app can be access from:
+https://dkrasiev.github.io/to-do-list/en - default english version
+https://dkrasiev.github.io/to-do-list/ru - translated to russian
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
