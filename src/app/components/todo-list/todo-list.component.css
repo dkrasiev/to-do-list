@@ -6,10 +6,32 @@
   overflow: hidden;
 }
 
+.todo-list__new-todo {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.todo-list__new-todo input {
+  flex: 1;
+  border: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 16px;
+}
+
+*:focus {
+  outline: none;
+}
+
 .todo-list__item {
   border-bottom: 1px solid black;
 }
 
 .todo-list__item:last-child {
   border-bottom: none;
+}
+
+.borderBottom {
+  border-bottom: 1px solid black;
 }

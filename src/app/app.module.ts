@@ -13,6 +13,7 @@ import { TodoInputComponent } from './components/todo-input/todo-input.component
 import { TodoItemComponent } from './components/todo-list/todo-item/todo-item.component';
 import { TodoFilterComponent } from './components/todo-filter/todo-filter.component';
 import { TodoFilterPipe } from './pipes/todo-filter.pipe';
+import { TodoSortingComponent } from './components/todo-sorting/todo-sorting.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TodoFilterPipe } from './pipes/todo-filter.pipe';
     TodoItemComponent,
     TodoFilterComponent,
     TodoFilterPipe,
+    TodoSortingComponent,
   ],
   imports: [
     BrowserModule,

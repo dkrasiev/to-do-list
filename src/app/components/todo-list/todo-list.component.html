@@ -1,11 +1,28 @@
-<ul class="todo-list" *ngIf="filteredTodos.length > 0">
+<ul class="todo-list">
+  <li
+    class="todo-list__new-todo"
+    [ngClass]="{
+      borderBottom: filteredTodos.length > 0
+    }"
+  >
+    <input
+      i18n="@@newTodoName"
+      type="text"
+      placeholder="new todo..."
+      (keyup.enter)="addTodo()"
+      [(ngModel)]="todoTitle"
+    />
+    <button mat-icon-button (click)="addTodo()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </li>
   <li *ngFor="let todo of filteredTodos" class="todo-list__item">
     <app-todo-item [todo]="todo"></app-todo-item>
   </li>
 </ul>
 
-<ng-container *ngIf="filteredTodos.length == 0">
+<!-- <ng-container *ngIf="filteredTodos.length == 0">
   <p i18n="@@noTodos" style="text-align: center; margin: auto">
     No todo found.
   </p>
-</ng-container>
+</ng-container> -->

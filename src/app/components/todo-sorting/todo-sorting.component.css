@@ -1,0 +1,16 @@
+.sorting-group {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 12px;
+}
+
+select {
+  font-size: 16px;
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background: none;
+}

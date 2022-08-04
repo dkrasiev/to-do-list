@@ -1,8 +1,9 @@
 <div class="container">
   <h1 class="title">{{ title | titlecase }}</h1>
-  <app-todo-filter class="mb-4"></app-todo-filter>
-  <app-todo-input class="mb-8"></app-todo-input>
-  <app-todo-list></app-todo-list>
+  <app-todo-filter></app-todo-filter>
+  <!-- <app-todo-input></app-todo-input> -->
+  <app-todo-sorting></app-todo-sorting>
+  <app-todo-list class="todo-list"></app-todo-list>
 
   <div class="right-top-corner">
     <button i18n="@@loadTodos" mat-button (click)="loadTodos()">
