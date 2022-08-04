@@ -5,8 +5,10 @@
   "projects": {
     "to-do-list": {
       "i18n": {
-        "locales": { "ru": "src/locales/messages.ru.xlf" },
-        "sourceLocale": "en-US"
+        "sourceLocale": "en",
+        "locales": {
+          "ru": "src/locales/messages.ru.xlf"
+        }
       },
       "projectType": "application",
       "schematics": {},
@@ -17,7 +19,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "localize": ["ru", "en-US"],
+            "localize": ["ru", "en"],
             "outputPath": "dist/to-do-list",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -58,7 +60,8 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "localize": ["en"]
             }
           },
           "defaultConfiguration": "production"
