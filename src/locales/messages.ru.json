@@ -1,9 +1,13 @@
 {
   "locale": "ru",
   "translations": {
+    "usersFeatures": "ПОЛЬЗОВАТЕЛЬСКИЕ ОПЦИИ",
+    "darkmode": "Темный режим",
+    "forTesting": "ДЛЯ ТЕСТИРОВАНИЯ",
     "loadTodos": " Загрузить ",
     "clearTodos": " Очистить ",
     "appTitle": "список задач",
+    "menu": "Меню",
     "filters": "Фильтры",
     "searchQuery": "Поиск...",
     "msgFilterAll": "Все",

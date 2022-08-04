@@ -1,26 +1,36 @@
-<div class="container dark-mode">
+<div class="container">
   <h1 class="title">{{ title | titlecase }}</h1>
   <app-todo-filter></app-todo-filter>
-  <!-- <app-todo-input></app-todo-input> -->
   <app-todo-sorting></app-todo-sorting>
   <app-todo-list class="todo-list" [addInput]="true"></app-todo-list>
 
+  <app-sidenav>
+    <div class="sidenav-content">
+      <div class="features-section">
+        <p i18n="@@usersFeatures">USERS FEATURES</p>
+        <mat-slide-toggle
+          i18n="@@darkmode"
+          style="margin: auto"
+          [(ngModel)]="isDarkMode"
+          (change)="onDarkModeChange()"
+          >dark mode</mat-slide-toggle
+        >
+      </div>
+      <div class="features-section">
+        <p i18n="@@forTesting">FOR TESTING</p>
+        <button i18n="@@loadTodos" mat-button (click)="loadTodos()">
+          load todos
+        </button>
+        <button i18n="@@clearTodos" mat-button (click)="clearTodos()">
+          clear todos
+        </button>
+      </div>
+    </div>
+  </app-sidenav>
+
   <div class="right-top-corner">
-    <button i18n="@@loadTodos" mat-button (click)="loadTodos()">
-      load todos
-    </button>
-    <button i18n="@@clearTodos" mat-button (click)="clearTodos()">
-      clear todos
-    </button>
-    <button mat-icon-button style="align-self: flex-end">
-      <mat-icon>help</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      style="align-self: flex-end"
-      (click)="toggleDarkMode()"
-    >
-      <mat-icon>light_mode</mat-icon>
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
     </button>
   </div>
 </div>

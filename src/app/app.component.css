@@ -31,3 +31,25 @@
 .right-top-corner > * {
   margin-bottom: 4px;
 }
+
+.sidenav-content {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.sidenav-content > * {
+  margin-bottom: 16px;
+}
+
+.features-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features-section > *:first-child {
+  margin-bottom: 8px;
+}

@@ -1,9 +1,13 @@
 {
   "locale": "en",
   "translations": {
+    "usersFeatures": "USERS FEATURES",
+    "darkmode": "dark mode",
+    "forTesting": "FOR TESTING",
     "loadTodos": " load todos ",
     "clearTodos": " clear todos ",
     "appTitle": "todo list",
+    "menu": "Menu",
     "filters": "Filters",
     "searchQuery": "search query...",
     "msgFilterAll": "all",

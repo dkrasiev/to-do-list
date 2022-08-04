@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
@@ -13,6 +15,7 @@ import { TodoItemComponent } from './components/todo-list/todo-item/todo-item.co
 import { TodoFilterComponent } from './components/todo-filter/todo-filter.component';
 import { TodoFilterPipe } from './pipes/todo-filter.pipe';
 import { TodoSortingComponent } from './components/todo-sorting/todo-sorting.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { TodoSortingComponent } from './components/todo-sorting/todo-sorting.com
     TodoFilterComponent,
     TodoFilterPipe,
     TodoSortingComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,8 @@ import { TodoSortingComponent } from './components/todo-sorting/todo-sorting.com
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
   ],
   providers: [TodoFilterPipe],
   bootstrap: [AppComponent],

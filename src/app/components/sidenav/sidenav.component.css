@@ -1,0 +1,36 @@
+.sidenav {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 0px;
+  box-shadow: 1px 0px;
+  transition: 0.5s ease;
+  overflow: hidden;
+  background-color: #dfe6e9;
+  color: #2d3436;
+  padding: 0;
+}
+
+.open {
+  max-width: 50%;
+  width: 200px;
+  padding: 8px;
+  padding-top: 0;
+}
+
+.dark-mode {
+  background-color: #2d3436;
+  color: #dfe6e9;
+}
+
+.sidenav__header {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 8px;
+}
+
+.header__title {
+  flex: 1;
+}

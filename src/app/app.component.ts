@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DarkModeService } from 'angular-dark-mode';
+import { LayoutService } from './services/layout.service';
 import { TodoService } from './services/todo.service';
 
 @Component({
@@ -7,13 +8,21 @@ import { TodoService } from './services/todo.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = $localize`:@@appTitle:todo list`;
+  isDarkMode: boolean = false;
 
   constructor(
     private todoService: TodoService,
-    private darkmodeService: DarkModeService
+    private darkModeService: DarkModeService,
+    private layoutService: LayoutService
   ) {}
+
+  ngOnInit(): void {
+    this.darkModeService.darkMode$.subscribe(
+      (state) => (this.isDarkMode = state)
+    );
+  }
 
   loadTodos() {
     this.todoService.loadTodos().subscribe();
@@ -23,7 +32,13 @@ export class AppComponent {
     this.todoService.clearTodos();
   }
 
-  toggleDarkMode() {
-    this.darkmodeService.toggle();
+  onDarkModeChange() {
+    this.isDarkMode
+      ? this.darkModeService.enable()
+      : this.darkModeService.disable();
+  }
+
+  toggleSidenav() {
+    this.layoutService.toggle();
   }
 }
