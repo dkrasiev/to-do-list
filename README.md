@@ -5,8 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Github pages
 
 This app can be access from:
-https://dkrasiev.github.io/to-do-list/en - default english version
-https://dkrasiev.github.io/to-do-list/ru - translated to russian
+- https://dkrasiev.github.io/to-do-list/en - default english version
+- https://dkrasiev.github.io/to-do-list/ru - translated to russian
 
 ## Development server
 
