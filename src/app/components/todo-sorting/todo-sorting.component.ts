@@ -17,12 +17,16 @@ export class TodoSortingComponent implements OnInit {
     //   name: 'none',
     // },
     {
+      value: 'id',
+      name: $localize`:@@sortingByDate:date (new ones first)`,
+    },
+    {
       value: 'title',
       name: $localize`:@@sortingByName:name`,
     },
     {
-      value: 'id',
-      name: $localize`:@@sortingByDate:date`,
+      value: 'completed',
+      name: $localize`:@@sortingByComplete:complete`,
     },
   ];
 
@@ -31,7 +35,7 @@ export class TodoSortingComponent implements OnInit {
   ngOnInit(): void {
     this.updateSort();
 
-    this.todoSortingService.sorting.subscribe((sort) => {
+    this.todoSortingService.sorting$.subscribe((sort) => {
       this.sorting = sort;
       this.sortingValue = sort.value;
     });

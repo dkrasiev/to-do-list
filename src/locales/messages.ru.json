@@ -2,15 +2,17 @@
   "locale": "ru",
   "translations": {
     "loadTodos": " Загрузить ",
-    "clearTodos": " Сохранить ",
+    "clearTodos": " Очистить ",
     "appTitle": "список задач",
+    "filters": "Фильтры",
     "searchQuery": "Поиск...",
     "msgFilterAll": "Все",
-    "msgFilterCompleted": "Завершенные",
-    "msgFilterIncompleted": "Не завершенные",
-    "newTodoName": "Название задачи",
+    "msgFilterCompleted": "Выполненные",
+    "msgFilterIncompleted": "Не выполненные",
+    "newTodoName": "Название задачи...",
     "sortingBy": "Сортировка по",
-    "sortingByName": "Имени",
-    "sortingByDate": "Дате"
+    "sortingByDate": "дате (сначала новые)",
+    "sortingByName": "Названию",
+    "sortingByComplete": "Выполнению"
   }
 }

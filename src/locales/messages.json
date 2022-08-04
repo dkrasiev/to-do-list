@@ -4,13 +4,15 @@
     "loadTodos": " load todos ",
     "clearTodos": " clear todos ",
     "appTitle": "todo list",
+    "filters": "Filters",
     "searchQuery": "search query...",
     "msgFilterAll": "all",
     "msgFilterCompleted": "completed",
     "msgFilterIncompleted": "incompleted",
-    "newTodoName": "todo name",
+    "newTodoName": "new todo...",
     "sortingBy": "Sorting by",
+    "sortingByDate": "date (new ones first)",
     "sortingByName": "name",
-    "sortingByDate": "date"
+    "sortingByComplete": "complete"
   }
 }

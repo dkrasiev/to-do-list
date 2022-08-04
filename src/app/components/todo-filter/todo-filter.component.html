@@ -1,12 +1,15 @@
-<div class="filter-container">
+<div class="filter">
+  <p i18n="@@filters" class="filter__title">Filters</p>
   <input
     i18n-placeholder="@@searchQuery"
+    class="filter__item"
     type="text"
     placeholder="search query..."
     [(ngModel)]="searchQuery"
     (keyup)="applyFilter()"
   />
   <select
+    class="filter__item"
     name="complete"
     id="complete"
     (change)="applyFilter()"

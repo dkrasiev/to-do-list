@@ -13,12 +13,17 @@ select {
   background: none;
 }
 
-.filter-container {
+.filter {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.filter-container > * {
+.filter__item {
   margin-bottom: 8px;
+}
+
+.filter__title {
+  font-size: 12px;
+  margin-bottom: 4px;
 }

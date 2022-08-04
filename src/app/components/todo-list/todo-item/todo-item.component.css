@@ -14,7 +14,12 @@
   margin-left: 8px;
 }
 
-input {
+.todo-item__checkbox {
+  height: 16px;
+  width: 16px;
+}
+
+.todo-item__title {
   background: none;
   border: none;
   font-size: 16px;
@@ -22,13 +27,12 @@ input {
   flex: 1;
 }
 
-*:focus {
-  outline: none;
+.todo-item__title:focus {
+  text-decoration: none;
 }
 
-.edit-mode {
-  background-color: coral;
-  text-decoration: none !important;
+*:focus {
+  outline: none;
 }
 
 .completed {

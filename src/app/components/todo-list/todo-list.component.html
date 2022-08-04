@@ -2,7 +2,7 @@
   <li
     class="todo-list__new-todo"
     [ngClass]="{
-      borderBottom: filteredTodos.length > 0
+      borderBottom: filteredAndSortedTodos.length > 0
     }"
   >
     <input
@@ -12,11 +12,11 @@
       (keyup.enter)="addTodo()"
       [(ngModel)]="todoTitle"
     />
-    <button mat-icon-button (click)="addTodo()">
+    <button mat-icon-button (click)="addTodo()" [disabled]="!this.todoTitle">
       <mat-icon>add</mat-icon>
     </button>
   </li>
-  <li *ngFor="let todo of filteredTodos" class="todo-list__item">
+  <li *ngFor="let todo of filteredAndSortedTodos" class="todo-list__item">
     <app-todo-item [todo]="todo"></app-todo-item>
   </li>
 </ul>

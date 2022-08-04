@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { TodoInputComponent } from './components/todo-input/todo-input.component';
 import { TodoItemComponent } from './components/todo-list/todo-item/todo-item.component';
 import { TodoFilterComponent } from './components/todo-filter/todo-filter.component';
 import { TodoFilterPipe } from './pipes/todo-filter.pipe';
@@ -19,7 +18,6 @@ import { TodoSortingComponent } from './components/todo-sorting/todo-sorting.com
   declarations: [
     AppComponent,
     TodoListComponent,
-    TodoInputComponent,
     TodoItemComponent,
     TodoFilterComponent,
     TodoFilterPipe,

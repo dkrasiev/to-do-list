@@ -14,7 +14,14 @@ import { ITodoFilter } from 'src/app/types/todo-filter';
 export class TodoListComponent implements OnInit {
   todos: ITodo[] = [];
   filters: ITodoFilter = {} as ITodoFilter;
-  filteredTodos: ITodo[] = [];
+
+  get filteredTodos(): ITodo[] {
+    return this.todoFilter.transform(this.todos, this.filters);
+  }
+
+  get filteredAndSortedTodos(): ITodo[] {
+    return this.todoSortingService.sort(this.filteredTodos);
+  }
 
   todoTitle: string = '';
 
@@ -27,34 +34,19 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.todoService.getTodos().subscribe();
+
     this.todoService.todos$.subscribe((todos) => {
-      // this.todos = todos.filter((v) => v.userId == 1);
       this.todos = todos;
-      this.filteredTodos = this.todoFilter.transform(this.todos, this.filters);
     });
 
     this.todoFilterService.filters$.subscribe((filters) => {
       this.filters = filters;
-      this.filteredTodos = this.todoFilter.transform(this.todos, this.filters);
-    });
-
-    this.todoSortingService.sorting.subscribe((sort) => {
-      switch (sort.value) {
-        case 'title':
-          this.filteredTodos = this.filteredTodos.sort((a, b) =>
-            a.title.toLowerCase().localeCompare(b.title.toLowerCase())
-          );
-          break;
-        case 'id':
-          this.filteredTodos = this.filteredTodos.sort((a, b) => a.id - b.id);
-          break;
-        default:
-          break;
-      }
     });
   }
 
   addTodo() {
+    if (!this.todoTitle) return;
+
     this.todoService.addTodo({
       title: this.todoTitle,
       completed: false,

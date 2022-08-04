@@ -1,23 +1,20 @@
-<div
-  class="todo-item"
-  (click)="toggleTodo()"
-  (dblclick)="enterEditMode()"
-  [ngClass]="{ 'edit-mode': editMode, completed: todo.completed }"
->
-  <ng-container *ngIf="editMode">
-    <input
-      #input
-      type="text"
-      [placeholder]="todo.title"
-      [(ngModel)]="newTitle"
-      (keyup.enter)="saveChanges()"
-      (keyup.escape)="discardChanges()"
-      (focusout)="saveChanges()"
-    />
-  </ng-container>
-  <div class="todo-item__title" *ngIf="!editMode">
-    {{ todo.title }}
-  </div>
+<div class="todo-item">
+  <input
+    class="todo-item__checkbox"
+    type="checkbox"
+    [(ngModel)]="todo.completed"
+  />
+  <input
+    class="todo-item__title"
+    type="text"
+    [(ngModel)]="inputTitle"
+    [ngClass]="{ completed: todo.completed }"
+    [placeholder]="todo.title"
+    required
+    (blur)="onBlur()"
+    (keyup.enter)="el.blur()"
+    #el
+  />
 
   <div class="todo-item__btns">
     <button
