@@ -10,6 +10,7 @@
   background-color: #dfe6e9;
   color: #2d3436;
   padding: 0;
+  z-index: 100;
 }
 
 .open {

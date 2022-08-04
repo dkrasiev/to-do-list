@@ -11,6 +11,7 @@ import { TodoService } from './services/todo.service';
 export class AppComponent implements OnInit {
   title = $localize`:@@appTitle:todo list`;
   isDarkMode: boolean = false;
+  isSidenavOpen: boolean = false;
 
   constructor(
     private todoService: TodoService,
@@ -22,6 +23,10 @@ export class AppComponent implements OnInit {
     this.darkModeService.darkMode$.subscribe(
       (state) => (this.isDarkMode = state)
     );
+
+    this.layoutService.sidenav$.subscribe((state) => {
+      this.isSidenavOpen = state;
+    });
   }
 
   loadTodos() {
