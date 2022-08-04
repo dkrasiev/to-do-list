@@ -12,7 +12,7 @@
     "newTodoName": "Название задачи...",
     "noTodos": "Ничего не найдено.",
     "sortingBy": "Сортировка по",
-    "sortingByDate": "дате (сначала новые)",
+    "sortingByDate": "Дате (сначала новые)",
     "sortingByName": "Названию",
     "sortingByComplete": "Выполнению"
   }
