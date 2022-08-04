@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TodoFilterPipe } from 'src/app/pipes/todo-filter.pipe';
 import { TodoFilterService } from 'src/app/services/todo-filter.service';
 import { TodoSortingService } from 'src/app/services/todo-sorting.service';
@@ -12,6 +12,8 @@ import { ITodoFilter } from 'src/app/types/todo-filter';
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent implements OnInit {
+  @Input() addInput: boolean = true;
+
   todos: ITodo[] = [];
   filters: ITodoFilter = {} as ITodoFilter;
 
@@ -21,6 +23,12 @@ export class TodoListComponent implements OnInit {
 
   get filteredAndSortedTodos(): ITodo[] {
     return this.todoSortingService.sort(this.filteredTodos);
+  }
+
+  get restTodos(): ITodo[] {
+    return this.todos.filter(
+      (a) => !this.filteredAndSortedTodos.find((b) => a == b)
+    );
   }
 
   todoTitle: string = '';

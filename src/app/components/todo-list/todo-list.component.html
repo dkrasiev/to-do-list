@@ -1,5 +1,9 @@
-<ul class="todo-list">
+<ul
+  class="todo-list"
+  *ngIf="addInput || filteredAndSortedTodos.length > 0; else notfound"
+>
   <li
+    *ngIf="addInput"
     class="todo-list__new-todo"
     [ngClass]="{
       borderBottom: filteredAndSortedTodos.length > 0
@@ -20,3 +24,13 @@
     <app-todo-item [todo]="todo"></app-todo-item>
   </li>
 </ul>
+
+<ul class="todo-list" style="margin-top: 32px" *ngIf="restTodos.length > 0">
+  <li class="todo-list__item" *ngFor="let todo of restTodos">
+    <app-todo-item [todo]="todo"></app-todo-item>
+  </li>
+</ul>
+
+<ng-template #notfound>
+  <div i18n="@@noTodos" style="text-align: center">No todos found.</div>
+</ng-template>

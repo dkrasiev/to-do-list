@@ -10,6 +10,7 @@
     "msgFilterCompleted": "completed",
     "msgFilterIncompleted": "incompleted",
     "newTodoName": "new todo...",
+    "noTodos": "No todos found.",
     "sortingBy": "Sorting by",
     "sortingByDate": "date (new ones first)",
     "sortingByName": "name",

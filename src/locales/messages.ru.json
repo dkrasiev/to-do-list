@@ -10,6 +10,7 @@
     "msgFilterCompleted": "Выполненные",
     "msgFilterIncompleted": "Не выполненные",
     "newTodoName": "Название задачи...",
+    "noTodos": "Ничего не найдено.",
     "sortingBy": "Сортировка по",
     "sortingByDate": "дате (сначала новые)",
     "sortingByName": "Названию",
