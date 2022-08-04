@@ -1,0 +1,14 @@
+{
+  "locale": "en",
+  "translations": {
+    "loadTodos": " load todos ",
+    "clearTodos": " clear todos ",
+    "appTitle": "todo list",
+    "searchQuery": "search query...",
+    "msgFilterAll": "all",
+    "msgFilterCompleted": "completed",
+    "msgFilterIncompleted": "incompleted",
+    "newTodoName": "todo name",
+    "noTodos": " No todo found. "
+  }
+}

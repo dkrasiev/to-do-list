@@ -5,8 +5,16 @@
   <app-todo-list></app-todo-list>
 
   <div class="right-top-corner">
-    <button mat-button (click)="loadTodos()" i18n>load todos</button>
-    <button mat-button (click)="clearTodos()" i18n>clear todos</button>
+    <button i18n="@@loadTodos" mat-button (click)="loadTodos()">
+      load todos
+    </button>
+    <button
+      i18n="Clear button|Clearing todos@@clearTodos"
+      mat-button
+      (click)="clearTodos()"
+    >
+      clear todos
+    </button>
     <button mat-icon-button style="align-self: flex-end">
       <mat-icon>help</mat-icon>
     </button>

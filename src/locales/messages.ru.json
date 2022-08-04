@@ -1,0 +1,14 @@
+{
+  "locale": "ru",
+  "translations": {
+    "loadTodos": " Загрузить ",
+    "clearTodos": " Сохранить ",
+    "appTitle": "список задач",
+    "searchQuery": "Поиск...",
+    "msgFilterAll": "Все",
+    "msgFilterCompleted": "Завершенные",
+    "msgFilterIncompleted": "Не завершенные",
+    "newTodoName": "Название задачи",
+    "noTodos": " Ничего не найдено. "
+  }
+}

@@ -7,7 +7,7 @@ import { TodoService } from './services/todo.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = $localize`todo list`;
+  title = $localize`:@@appTitle:todo list`;
 
   constructor(private todoService: TodoService) {}
 
