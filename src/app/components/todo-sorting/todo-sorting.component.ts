@@ -18,11 +18,11 @@ export class TodoSortingComponent implements OnInit {
     // },
     {
       value: 'title',
-      name: 'name',
+      name: $localize`:@@sortingByName:name`,
     },
     {
       value: 'id',
-      name: 'date',
+      name: $localize`:@@sortingByDate:date`,
     },
   ];
 

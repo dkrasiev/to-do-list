@@ -9,6 +9,8 @@
     "msgFilterCompleted": "Завершенные",
     "msgFilterIncompleted": "Не завершенные",
     "newTodoName": "Название задачи",
-    "noTodos": " Ничего не найдено. "
+    "sortingBy": "Сортировка по",
+    "sortingByName": "Имени",
+    "sortingByDate": "Дате"
   }
 }

@@ -6,7 +6,7 @@
     }"
   >
     <input
-      i18n="@@newTodoName"
+      i18n-placeholder="@@newTodoName"
       type="text"
       placeholder="new todo..."
       (keyup.enter)="addTodo()"
@@ -20,9 +20,3 @@
     <app-todo-item [todo]="todo"></app-todo-item>
   </li>
 </ul>
-
-<!-- <ng-container *ngIf="filteredTodos.length == 0">
-  <p i18n="@@noTodos" style="text-align: center; margin: auto">
-    No todo found.
-  </p>
-</ng-container> -->

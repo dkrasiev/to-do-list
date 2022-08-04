@@ -9,6 +9,8 @@
     "msgFilterCompleted": "completed",
     "msgFilterIncompleted": "incompleted",
     "newTodoName": "todo name",
-    "noTodos": " No todo found. "
+    "sortingBy": "Sorting by",
+    "sortingByName": "name",
+    "sortingByDate": "date"
   }
 }
