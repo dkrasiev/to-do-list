@@ -37,7 +37,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   onBlur() {
-    if (this.inputTitle) this.todo.title = this.inputTitle;
+    if (this.inputTitle) this.todo.title = this.inputTitle.trim();
 
     this.inputTitle = this.todo.title;
   }

@@ -61,6 +61,7 @@ export class TodoService {
   }
 
   addTodo(todo: ITodo) {
+    todo.title = todo.title.trim();
     this.todos$.value.push(todo);
     this.todos$.next(this.todos$.value);
   }
