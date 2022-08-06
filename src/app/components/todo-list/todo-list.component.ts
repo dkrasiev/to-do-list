@@ -27,7 +27,7 @@ import { ITodoFilter } from 'src/app/types/todo-filter';
             style({ opacity: 0, height: 0 }),
             stagger(
               '60ms',
-              animate('200ms', style({ opacity: 1, height: 57 }))
+              animate('200ms', style({ opacity: 1, height: '*' }))
             ),
           ],
           { optional: true }
