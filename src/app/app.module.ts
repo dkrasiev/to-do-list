@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
@@ -35,8 +35,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenavModule,
     MatSlideToggleModule,
+    MatCheckboxModule,
   ],
   providers: [TodoFilterPipe],
   bootstrap: [AppComponent],

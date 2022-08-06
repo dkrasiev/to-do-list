@@ -1,20 +1,22 @@
 <div class="todo-item">
-  <input
+  <!-- <input
     class="todo-item__checkbox"
     type="checkbox"
     [(ngModel)]="todo.completed"
-  />
-  <input
-    class="todo-item__title"
-    type="text"
-    [(ngModel)]="inputTitle"
-    [ngClass]="{ completed: todo.completed }"
-    [placeholder]="todo.title"
-    required
-    (blur)="onBlur()"
-    (keyup.enter)="el.blur()"
-    #el
-  />
+  /> -->
+  <mat-checkbox [(ngModel)]="todo.completed">
+    <input
+      class="todo-item__title"
+      type="text"
+      [(ngModel)]="inputTitle"
+      [ngClass]="{ completed: todo.completed }"
+      [placeholder]="todo.title"
+      required
+      (blur)="onBlur()"
+      (keyup.enter)="el.blur()"
+      #el
+    />
+  </mat-checkbox>
 
   <div class="todo-item__btns">
     <button
