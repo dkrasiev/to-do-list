@@ -16,8 +16,13 @@
       placeholder="new todo..."
       (keyup.enter)="addTodo()"
       [(ngModel)]="todoTitle"
+      required
     />
-    <button mat-icon-button (click)="addTodo()" [disabled]="!this.todoTitle">
+    <button
+      mat-icon-button
+      (click)="addTodo()"
+      [disabled]="!this.todoTitle.trim()"
+    >
       <mat-icon>add</mat-icon>
     </button>
   </li>

@@ -81,7 +81,10 @@ export class TodoListComponent implements OnInit {
   }
 
   addTodo() {
-    if (!this.todoTitle.trim()) return;
+    if (!this.todoTitle.trim()) {
+      this.todoTitle = '';
+      return;
+    }
 
     this.todoService.addTodo({
       title: this.todoTitle,
