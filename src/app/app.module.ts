@@ -29,10 +29,10 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,

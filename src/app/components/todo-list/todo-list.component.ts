@@ -1,3 +1,11 @@
+import {
+  animate,
+  query,
+  stagger,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { TodoFilterPipe } from 'src/app/pipes/todo-filter.pipe';
 import { TodoFilterService } from 'src/app/services/todo-filter.service';
@@ -10,6 +18,26 @@ import { ITodoFilter } from 'src/app/types/todo-filter';
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* <=> *', [
+        query(
+          ':enter',
+          [
+            style({ opacity: 0, height: 0 }),
+            stagger(
+              '60ms',
+              animate('200ms', style({ opacity: 1, height: 57 }))
+            ),
+          ],
+          { optional: true }
+        ),
+        query(':leave', animate('200ms', style({ height: 0, opacity: 0 })), {
+          optional: true,
+        }),
+      ]),
+    ]),
+  ],
 })
 export class TodoListComponent implements OnInit {
   @Input() addInput: boolean = true;
@@ -44,7 +72,7 @@ export class TodoListComponent implements OnInit {
     this.todoService.getTodos().subscribe();
 
     this.todoService.todos$.subscribe((todos) => {
-      this.todos = todos;
+      this.todos = todos.filter((todo) => todo.userId == 1);
     });
 
     this.todoFilterService.filters$.subscribe((filters) => {

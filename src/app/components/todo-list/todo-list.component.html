@@ -1,6 +1,7 @@
 <ul
   class="todo-list"
   *ngIf="addInput || filteredAndSortedTodos.length > 0; else notfound"
+  [@listAnimation]="filteredAndSortedTodos.length"
 >
   <li
     *ngIf="addInput"
@@ -25,7 +26,12 @@
   </li>
 </ul>
 
-<ul class="todo-list" style="margin-top: 32px" *ngIf="restTodos.length > 0">
+<ul
+  class="todo-list"
+  style="margin-top: 32px"
+  *ngIf="restTodos.length > 0"
+  [@listAnimation]="restTodos.length"
+>
   <li class="todo-list__item" *ngFor="let todo of restTodos">
     <app-todo-item [todo]="todo"></app-todo-item>
   </li>
