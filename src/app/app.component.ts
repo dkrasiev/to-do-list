@@ -28,13 +28,12 @@ export class AppComponent implements OnInit {
       this.isSidenavOpen = state;
     });
 
-    if (
-      !window.localStorage.getItem('loaded-before') &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-      this.darkModeService.enable();
-    } else {
-      this.darkModeService.disable();
+    if (!window.localStorage.getItem('loaded-before')) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        this.darkModeService.enable();
+      } else {
+        this.darkModeService.disable();
+      }
     }
 
     window.localStorage.setItem('loaded-before', 'true');
