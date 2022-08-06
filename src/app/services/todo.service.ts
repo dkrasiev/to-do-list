@@ -66,20 +66,6 @@ export class TodoService {
   }
 
   deleteTodo(id: number) {
-    let index;
-    const todo = this.todos$.value.find((v, i) => {
-      if (v.id == id) {
-        index = i;
-        return true;
-      }
-
-      return false;
-    });
-
-    if (todo && typeof index == 'number') {
-      this.todos$.value.splice(index, 1);
-      this.todos$.next(this.todos$.value);
-      return;
-    }
+    this.todos$.next(this.todos$.value.filter((todo) => todo.id !== id));
   }
 }
