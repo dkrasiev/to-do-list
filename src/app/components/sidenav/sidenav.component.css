@@ -17,12 +17,16 @@
   transition-property: width, padding;
 }
 
+.sidenav > * {
+  width: 100%;
+}
+
 .open {
   max-width: 100vw;
   width: 200px;
 
-  padding: 8px;
-  padding-top: 0;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .dark-mode {

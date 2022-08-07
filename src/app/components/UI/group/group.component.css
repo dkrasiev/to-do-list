@@ -1,0 +1,24 @@
+.group-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.align-start {
+  text-align: left;
+}
+
+.group-container__content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.group-container__content > * {
+  margin-bottom: 8px;
+}
+
+label {
+  margin-bottom: 8px;
+}

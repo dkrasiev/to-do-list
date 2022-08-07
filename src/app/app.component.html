@@ -15,8 +15,11 @@
 
 <app-sidenav appStopPropagation>
   <div class="sidenav-content">
-    <div class="features-section">
-      <p i18n="@@usersFeatures">USERS FEATURES</p>
+    <app-group
+      i18n-title="@@usersFeatures"
+      title="USERS FEATURES"
+      titleAlign="center"
+    >
       <mat-slide-toggle
         i18n="@@darkmode"
         style="margin: auto"
@@ -24,15 +27,18 @@
         (change)="onDarkModeChange()"
         >dark mode</mat-slide-toggle
       >
-    </div>
-    <div class="features-section">
-      <p i18n="@@forTesting">FOR TESTING</p>
+    </app-group>
+    <app-group
+      i18n-title="@@forTesting"
+      title="FOR TESTING"
+      titleAlign="center"
+    >
       <button i18n="@@loadTodos" mat-button (click)="loadTodos()">
         load todos
       </button>
       <button i18n="@@clearTodos" mat-button (click)="clearTodos()">
         clear todos
       </button>
-    </div>
+    </app-group>
   </div>
 </app-sidenav>

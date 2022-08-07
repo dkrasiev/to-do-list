@@ -1,1 +1,11 @@
-<p>group works!</p>
+<div class="group-container">
+  <label
+    class="align-start"
+    [ngStyle]="{ textAlign: titleAlign, fontSize: titleSize }"
+    >{{ title }}</label
+  >
+
+  <div class="group-container__content">
+    <ng-content></ng-content>
+  </div>
+</div>
