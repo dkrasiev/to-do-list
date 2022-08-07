@@ -7,7 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
@@ -16,6 +15,7 @@ import { TodoFilterComponent } from './components/todo-filter/todo-filter.compon
 import { TodoFilterPipe } from './pipes/todo-filter.pipe';
 import { TodoSortingComponent } from './components/todo-sorting/todo-sorting.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     TodoFilterPipe,
     TodoSortingComponent,
     SidenavComponent,
+    CheckboxComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +37,6 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     MatButtonModule,
     MatIconModule,
     MatSlideToggleModule,
-    MatCheckboxModule,
   ],
   providers: [TodoFilterPipe],
   bootstrap: [AppComponent],

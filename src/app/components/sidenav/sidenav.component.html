@@ -3,7 +3,7 @@
   [ngClass]="{ open: state, 'dark-mode': darkModeService.darkMode$ | async }"
 >
   <div class="sidenav__header">
-    <p i18n="@@menu" class="header__title">Menu</p>
+    <p i18n="@@menu" class="sidenav__title">Menu</p>
     <button mat-icon-button>
       <mat-icon (click)="close()">close</mat-icon>
     </button>

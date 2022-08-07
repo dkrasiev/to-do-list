@@ -1,0 +1,7 @@
+<div
+  [ngClass]="{ checked: value, 'dark-mode': darkmode }"
+  class="checkbox"
+  (click)="onClick()"
+>
+  <ng-content></ng-content>
+</div>

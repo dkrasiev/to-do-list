@@ -1,29 +1,26 @@
 <div class="todo-item">
-  <!-- <input
-    class="todo-item__checkbox"
-    type="checkbox"
-    [(ngModel)]="todo.completed"
-  /> -->
-  <mat-checkbox [(ngModel)]="todo.completed">
-    <input
-      class="todo-item__title"
-      type="text"
-      [(ngModel)]="inputTitle"
-      [ngClass]="{ completed: todo.completed }"
-      [placeholder]="todo.title"
-      required
-      (blur)="onBlur()"
-      (keyup.enter)="el.blur()"
-      #el
-    />
-  </mat-checkbox>
+  <!-- <mat-checkbox [(ngModel)]="todo.completed" class="todo-item__mat-checkbox">
+  </mat-checkbox> -->
+
+  <app-checkbox
+    [value]="todo.completed"
+    (valueChange)="todo.completed = $event"
+  ></app-checkbox>
+
+  <input
+    class="todo-item__title"
+    type="text"
+    [(ngModel)]="inputTitle"
+    [ngClass]="{ completed: todo.completed }"
+    [placeholder]="todo.title"
+    required
+    (blur)="onBlur()"
+    (keyup.enter)="el.blur()"
+    #el
+  />
 
   <div class="todo-item__btns">
-    <button
-      mat-icon-button
-      onclick="event.stopPropagation()"
-      (click)="deleteTodo()"
-    >
+    <button mat-icon-button (click)="deleteTodo()">
       <mat-icon>delete</mat-icon>
     </button>
   </div>

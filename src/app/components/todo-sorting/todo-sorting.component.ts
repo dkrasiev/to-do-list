@@ -12,10 +12,6 @@ export class TodoSortingComponent implements OnInit {
   sorting!: ITodoSort;
 
   options: ITodoSort[] = [
-    // {
-    //   value: '',
-    //   name: 'none',
-    // },
     {
       value: 'id',
       name: $localize`:@@sortingByDate:date (new ones first)`,

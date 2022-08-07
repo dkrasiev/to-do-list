@@ -1,0 +1,21 @@
+.checkbox {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  transition: all 0.1s;
+  background-image: url("src/assets/UI/checkbox_unchecked.png");
+  background-position: center;
+  background-size: contain;
+}
+
+.checked {
+  background-image: url("src/assets/UI/checkbox_checked.png");
+}
+
+.checked.dark-mode {
+  background-image: url("src/assets/UI/dark_checkbox_checked.png") !important;
+}
+
+.checkbox.dark-mode {
+  background-image: url("src/assets/UI/dark_checkbox_unchecked.png");
+}
