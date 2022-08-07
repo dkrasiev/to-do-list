@@ -27,16 +27,6 @@ export class AppComponent implements OnInit {
     this.layoutService.sidenav$.subscribe((state) => {
       this.isSidenavOpen = state;
     });
-
-    if (!window.localStorage.getItem('loaded-before')) {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        this.darkModeService.enable();
-      } else {
-        this.darkModeService.disable();
-      }
-    }
-
-    window.localStorage.setItem('loaded-before', 'true');
   }
 
   loadTodos() {
