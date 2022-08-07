@@ -19,9 +19,11 @@ export class TodoService {
   }
 
   loadTodos() {
-    return this.http
-      .get<ITodo[]>(this.url)
-      .pipe(tap((todos) => this.todos$.next(todos)));
+    return this.http.get<ITodo[]>(this.url).pipe(
+      tap((todos) => {
+        this.todos$.next(todos);
+      })
+    );
   }
 
   clearTodos() {

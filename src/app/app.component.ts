@@ -46,4 +46,8 @@ export class AppComponent implements OnInit {
   toggleSidenav() {
     this.layoutService.toggle();
   }
+
+  closeSidenav() {
+    this.layoutService.close();
+  }
 }

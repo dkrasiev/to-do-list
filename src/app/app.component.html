@@ -1,36 +1,38 @@
-<div class="container">
-  <h1 class="title">{{ title | titlecase }}</h1>
-  <app-todo-filter></app-todo-filter>
-  <app-todo-sorting></app-todo-sorting>
-  <app-todo-list class="todo-list" [addInput]="true"></app-todo-list>
+<div (click)="closeSidenav()">
+  <div class="container">
+    <h1 class="title">{{ title | titlecase }}</h1>
+    <app-todo-filter></app-todo-filter>
+    <app-todo-sorting></app-todo-sorting>
+    <app-todo-list class="todo-list" [addInput]="true"></app-todo-list>
 
-  <app-sidenav>
-    <div class="sidenav-content">
-      <div class="features-section">
-        <p i18n="@@usersFeatures">USERS FEATURES</p>
-        <mat-slide-toggle
-          i18n="@@darkmode"
-          style="margin: auto"
-          [(ngModel)]="isDarkMode"
-          (change)="onDarkModeChange()"
-          >dark mode</mat-slide-toggle
-        >
-      </div>
-      <div class="features-section">
-        <p i18n="@@forTesting">FOR TESTING</p>
-        <button i18n="@@loadTodos" mat-button (click)="loadTodos()">
-          load todos
-        </button>
-        <button i18n="@@clearTodos" mat-button (click)="clearTodos()">
-          clear todos
-        </button>
-      </div>
+    <div class="sidenav-btn">
+      <button mat-icon-button (click)="toggleSidenav()" appStopPropagation>
+        <mat-icon>menu</mat-icon>
+      </button>
     </div>
-  </app-sidenav>
-
-  <div class="sidenav-btn">
-    <button mat-icon-button (click)="toggleSidenav()">
-      <mat-icon>menu</mat-icon>
-    </button>
   </div>
 </div>
+
+<app-sidenav appStopPropagation>
+  <div class="sidenav-content">
+    <div class="features-section">
+      <p i18n="@@usersFeatures">USERS FEATURES</p>
+      <mat-slide-toggle
+        i18n="@@darkmode"
+        style="margin: auto"
+        [(ngModel)]="isDarkMode"
+        (change)="onDarkModeChange()"
+        >dark mode</mat-slide-toggle
+      >
+    </div>
+    <div class="features-section">
+      <p i18n="@@forTesting">FOR TESTING</p>
+      <button i18n="@@loadTodos" mat-button (click)="loadTodos()">
+        load todos
+      </button>
+      <button i18n="@@clearTodos" mat-button (click)="clearTodos()">
+        clear todos
+      </button>
+    </div>
+  </div>
+</app-sidenav>

@@ -4,9 +4,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
 
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
@@ -17,10 +22,9 @@ import { TodoSortingComponent } from './components/todo-sorting/todo-sorting.com
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
 import { GroupComponent } from './components/UI/group/group.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { StopPropagationDirective } from './directives/stop-propagation.directive';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     SidenavComponent,
     CheckboxComponent,
     GroupComponent,
+    StopPropagationDirective,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     MatButtonModule,
     MatIconModule,
     MatSlideToggleModule,
+
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
