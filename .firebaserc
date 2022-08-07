@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "todo-list-64dd1"
+  },
+  "targets": {
+    "todo-list-64dd1": {
+      "hosting": {
+        "to-do-list": [
+          "dkrasiev-todo-list"
+        ]
+      }
+    }
+  }
+}

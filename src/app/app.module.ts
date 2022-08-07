@@ -16,6 +16,11 @@ import { TodoFilterPipe } from './pipes/todo-filter.pipe';
 import { TodoSortingComponent } from './components/todo-sorting/todo-sorting.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
+import { GroupComponent } from './components/UI/group/group.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,7 @@ import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
     TodoSortingComponent,
     SidenavComponent,
     CheckboxComponent,
+    GroupComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,9 @@ import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
     MatButtonModule,
     MatIconModule,
     MatSlideToggleModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
   ],
   providers: [TodoFilterPipe],
   bootstrap: [AppComponent],
