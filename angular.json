@@ -99,7 +99,7 @@
             "scripts": ["./node_modules/angular-dark-mode/angular-dark-mode.js"]
           }
         },
-        "deploy": {
+        "deploy-firebase": {
           "builder": "@angular/fire:deploy",
           "options": {
             "prerender": false,
@@ -107,6 +107,14 @@
             "browserTarget": "to-do-list:build:production",
             "firebaseProject": "todo-list-64dd1",
             "firebaseHostingSite": "dkrasiev-todo-list"
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/to-do-list/",
+            "name": "Dmitry Krasiev",
+            "email": "dmitrykrasiev@gmail.com"
           }
         }
       }

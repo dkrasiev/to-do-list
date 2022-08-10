@@ -31,7 +31,7 @@
 
     <div
       class="row animate"
-      [ngClass]="{ hide: !mouseover && todo.tags.length == 0 }"
+      [ngClass]="{ hide: !mouseover && todo.tags && todo.tags.length == 0 }"
     >
       <mat-chip-list #tags>
         <mat-chip

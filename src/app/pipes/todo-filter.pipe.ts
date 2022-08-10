@@ -23,10 +23,13 @@ export class TodoFilterPipe implements PipeTransform {
       let tagsFilterResult = true;
       if (tags.length) {
         tagsFilterResult = false;
-        for (let tag of tags) {
-          tagsFilterResult = v.tags.includes(tag);
 
-          if (tagsFilterResult == true) break;
+        if (v.tags) {
+          for (let tag of tags) {
+            tagsFilterResult = v.tags.includes(tag);
+
+            if (tagsFilterResult == true) break;
+          }
         }
       }
 
