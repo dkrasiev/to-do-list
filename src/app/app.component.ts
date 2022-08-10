@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkModeService } from 'angular-dark-mode';
 import { LayoutService } from './services/layout.service';
 import { TodoService } from './services/todo.service';
+import { DarkModeService } from './services/dark-mode.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   isDarkMode: boolean = false;
   isSidenavOpen: boolean = false;
 
+  isModalOpen = false;
+
   constructor(
     private todoService: TodoService,
     private darkModeService: DarkModeService,
@@ -20,6 +22,8 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.todoService.getTodos().subscribe();
+
     this.darkModeService.darkMode$.subscribe(
       (state) => (this.isDarkMode = state)
     );
@@ -49,5 +53,9 @@ export class AppComponent implements OnInit {
 
   closeSidenav() {
     this.layoutService.close();
+  }
+
+  openModal() {
+    this.isModalOpen = true;
   }
 }

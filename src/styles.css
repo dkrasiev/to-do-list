@@ -17,24 +17,22 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-body.dark-mode {
-  background-color: #2d3436;
-  color: #dfe6e9;
-}
-
+body.dark-mode,
 body.dark-mode input,
 body.dark-mode select {
-  background-color: #2d3436;
-  color: #dfe6e9;
+  --main-color: #2d3436;
+  --second-color: #dfe6e9;
+
+  background-color: var(--main-color);
+  color: var(--second-color);
 }
 
-body.light-mode {
-  background-color: #dfe6e9;
-  color: #2d3436;
-}
-
+body.light-mode,
 body.light-mode input,
 body.light-mode select {
-  background-color: #dfe6e9;
-  color: #2d3436;
+  --main-color: #dfe6e9;
+  --second-color: #2d3436;
+
+  background-color: var(--main-color);
+  color: var(--second-color);
 }

@@ -1,4 +1,3 @@
-import { TypeofExpr } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ITodo } from '../types/todo';
@@ -20,26 +19,26 @@ export class TodoSortingService {
   }
 
   sort(todos: ITodo[]): ITodo[] {
+    const sortingMethod = this.getSorting();
     let sortedTodos = todos;
-    switch (this.sorting$.value.value) {
-      case 'title':
-        sortedTodos = todos.sort((a, b) =>
-          a.title.toLowerCase().localeCompare(b.title.toLowerCase())
-        );
-        break;
-      case 'id':
-        sortedTodos = todos.sort((a, b) => b.id - a.id);
-        break;
-      case 'completed':
-        sortedTodos = todos.sort(
-          (a, b) => (a.completed ? 1 : 0) - (b.completed ? 1 : 0)
-        );
-        break;
 
-      default:
-        break;
-    }
+    if (sortingMethod) sortedTodos = sortedTodos.sort(sortingMethod);
 
     return sortedTodos;
+  }
+
+  getSorting() {
+    switch (this.sorting$.value.value) {
+      case 'title':
+        return (a: ITodo, b: ITodo) =>
+          a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+      case 'id':
+        return (a: ITodo, b: ITodo) => b.id - a.id;
+      case 'completed':
+        return (a: ITodo, b: ITodo) =>
+          (a.completed ? 1 : 0) - (b.completed ? 1 : 0);
+    }
+
+    return null;
   }
 }

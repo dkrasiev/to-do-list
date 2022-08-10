@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkModeService } from 'angular-dark-mode';
 import { LayoutService } from 'src/app/services/layout.service';
 
 @Component({
@@ -10,10 +9,7 @@ import { LayoutService } from 'src/app/services/layout.service';
 export class SidenavComponent implements OnInit {
   state: boolean = false;
 
-  constructor(
-    private layoutService: LayoutService,
-    public darkModeService: DarkModeService
-  ) {}
+  constructor(private layoutService: LayoutService) {}
 
   ngOnInit(): void {
     this.layoutService.sidenav$.subscribe((state) => {

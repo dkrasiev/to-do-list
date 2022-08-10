@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCardModule } from '@angular/material/card';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -25,6 +26,7 @@ import { GroupComponent } from './components/UI/group/group.component';
 
 import { environment } from '../environments/environment';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
+import { ModalComponent } from './components/UI/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { StopPropagationDirective } from './directives/stop-propagation.directiv
     CheckboxComponent,
     GroupComponent,
     StopPropagationDirective,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,9 +48,11 @@ import { StopPropagationDirective } from './directives/stop-propagation.directiv
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+
     MatButtonModule,
     MatIconModule,
     MatSlideToggleModule,
+    MatCardModule,
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

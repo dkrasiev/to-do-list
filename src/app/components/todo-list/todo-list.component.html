@@ -1,6 +1,6 @@
 <ul
   class="todo-list"
-  *ngIf="addInput || filteredAndSortedTodos.length > 0; else notfound"
+  *ngIf="addInput || filteredAndSortedTodos.length > 0; else notFound"
   [@listAnimation]="filteredAndSortedTodos.length"
 >
   <li
@@ -42,6 +42,6 @@
   </li>
 </ul>
 
-<ng-template #notfound>
+<ng-template #notFound>
   <div i18n="@@noTodos" style="text-align: center">No todos found.</div>
 </ng-template>

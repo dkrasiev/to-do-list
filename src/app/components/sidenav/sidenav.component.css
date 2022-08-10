@@ -6,12 +6,11 @@
 
   width: 0px;
   padding: 0;
-  z-index: 100;
+  z-index: 50;
   overflow: hidden;
   box-shadow: 1px 0px;
 
-  background-color: #dfe6e9;
-  color: #2d3436;
+  background-color: var(--main-color);
 
   transition: all 0.5s ease;
   transition-property: width, padding;
@@ -27,11 +26,6 @@
 
   padding-left: 8px;
   padding-right: 8px;
-}
-
-.dark-mode {
-  background-color: #2d3436;
-  color: #dfe6e9;
 }
 
 .sidenav__header {

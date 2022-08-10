@@ -7,7 +7,7 @@ import { ITodoFilter } from '../types/todo-filter';
   providedIn: 'root',
 })
 export class TodoFilterService {
-  filters$: BehaviorSubject<ITodoFilter> = new BehaviorSubject<ITodoFilter>({
+  filter$: BehaviorSubject<ITodoFilter> = new BehaviorSubject<ITodoFilter>({
     searchQuery: '',
     completeFilter: '',
   });
@@ -15,6 +15,6 @@ export class TodoFilterService {
   constructor() {}
 
   setFilters(filters: ITodoFilter) {
-    this.filters$.next(filters);
+    this.filter$.next(filters);
   }
 }

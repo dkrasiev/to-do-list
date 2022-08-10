@@ -1,7 +1,4 @@
-<nav
-  class="sidenav"
-  [ngClass]="{ open: state, 'dark-mode': darkModeService.darkMode$ | async }"
->
+<nav class="sidenav" [ngClass]="{ open: state }">
   <div class="sidenav__header">
     <p i18n="@@menu" class="sidenav__title">Menu</p>
     <button mat-icon-button>

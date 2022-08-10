@@ -4,8 +4,10 @@
   cursor: pointer;
   transition: all 0.1s;
   background-image: url("src/assets/UI/checkbox_unchecked.png");
-  background-position: center;
   background-size: contain;
+
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .checked {

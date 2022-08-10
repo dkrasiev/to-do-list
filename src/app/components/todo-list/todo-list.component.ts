@@ -1,7 +1,6 @@
 import {
   animate,
   query,
-  stagger,
   style,
   transition,
   trigger,
@@ -25,10 +24,7 @@ import { ITodoFilter } from 'src/app/types/todo-filter';
           ':enter',
           [
             style({ opacity: 0, height: 0 }),
-            stagger(
-              '60ms',
-              animate('200ms', style({ opacity: 1, height: '*' }))
-            ),
+            animate('200ms', style({ opacity: 1, height: '*' })),
           ],
           { optional: true }
         ),
@@ -43,10 +39,10 @@ export class TodoListComponent implements OnInit {
   @Input() addInput: boolean = true;
 
   todos: ITodo[] = [];
-  filters: ITodoFilter = {} as ITodoFilter;
+  filter: ITodoFilter = {} as ITodoFilter;
 
   get filteredTodos(): ITodo[] {
-    return this.todoFilter.transform(this.todos, this.filters);
+    return this.todoFilter.transform(this.todos, this.filter);
   }
 
   get filteredAndSortedTodos(): ITodo[] {
@@ -75,8 +71,8 @@ export class TodoListComponent implements OnInit {
       this.todos = todos.filter((todo) => todo.userId == 1);
     });
 
-    this.todoFilterService.filters$.subscribe((filters) => {
-      this.filters = filters;
+    this.todoFilterService.filter$.subscribe((filter) => {
+      this.filter = filter;
     });
   }
 

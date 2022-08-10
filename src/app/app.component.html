@@ -1,4 +1,4 @@
-<div (click)="closeSidenav()">
+<div (click)="closeSidenav()" style="height: 100vh">
   <div class="container">
     <h1 class="title">{{ title | titlecase }}</h1>
     <app-todo-filter></app-todo-filter>
@@ -12,6 +12,10 @@
     </div>
   </div>
 </div>
+
+<app-modal [(state)]="isModalOpen">
+  <app-todo-list [addInput]="true"></app-todo-list>
+</app-modal>
 
 <app-sidenav appStopPropagation>
   <div class="sidenav-content">
@@ -38,6 +42,9 @@
       </button>
       <button i18n="@@clearTodos" mat-button (click)="clearTodos()">
         clear todos
+      </button>
+      <button i18n="@@openModal" mat-button (click)="openModal()">
+        open modal
       </button>
     </app-group>
   </div>
