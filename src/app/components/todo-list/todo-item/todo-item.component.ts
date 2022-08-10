@@ -50,6 +50,8 @@ export class TodoItemComponent implements OnInit {
   addTag() {
     const value = this.tagInput.trim();
 
+    if (!this.todo.tags) this.todo.tags = [];
+
     if (value && !this.todo.tags?.includes(value)) this.todo.tags?.push(value);
 
     this.tagInput = '';
