@@ -1,4 +1,9 @@
-<app-group i18n-title="@@filters" title="Filters" titleSize="12px">
+<app-group
+  class="filter"
+  i18n-title="@@filters"
+  title="Filters"
+  titleSize="12px"
+>
   <input
     i18n-placeholder="@@searchQuery"
     class="filter__item"
@@ -7,6 +12,7 @@
     [(ngModel)]="searchQuery"
     (keyup)="applyFilter()"
   />
+
   <select
     class="filter__item"
     name="complete"
@@ -18,7 +24,15 @@
     <option i18n="@@msgFilterCompleted" value="true">completed</option>
     <option i18n="@@msgFilterIncompleted" value="false">incompleted</option>
   </select>
+
+  <mat-chip-list class="chip-list" multiple>
+    <mat-chip
+      *ngFor="let tag of tags"
+      class="chip-list__item"
+      color="accent"
+      [selected]="this.selectedTags.includes(tag)"
+      (click)="onChipClick(tag)"
+      >{{ tag }}
+    </mat-chip>
+  </mat-chip-list>
 </app-group>
-<!-- <div class="filter"> -->
-<!-- <label i18n="@@filters" class="filter__title">Filters</label> -->
-<!-- </div> -->

@@ -9,8 +9,10 @@ import { ITodo } from 'src/app/types/todo';
 })
 export class TodoItemComponent implements OnInit {
   @Input() todo!: ITodo;
+  mouseover: boolean = false;
 
   inputTitle: string = '';
+  tagInput: string = '';
 
   constructor(private todoService: TodoService) {}
 
@@ -39,5 +41,19 @@ export class TodoItemComponent implements OnInit {
     if (this.inputTitle) this.todo.title = this.inputTitle.trim();
 
     this.inputTitle = this.todo.title;
+  }
+
+  removeTag(tag: string) {
+    this.todo.tags = this.todo.tags?.filter((v) => v !== tag);
+  }
+
+  addTag() {
+    const value = this.tagInput.trim();
+
+    if (value && !this.todo.tags?.includes(value)) this.todo.tags?.push(value);
+
+    this.tagInput = '';
+
+    this.todo.tags = this.todo.tags;
   }
 }

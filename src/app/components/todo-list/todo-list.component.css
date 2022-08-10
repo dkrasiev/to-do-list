@@ -35,7 +35,3 @@
 .borderBottom {
   border-bottom: 1px solid black;
 }
-
-.todo-list li {
-  height: 56px;
-}

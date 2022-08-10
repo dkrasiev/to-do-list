@@ -87,6 +87,7 @@ export class TodoListComponent implements OnInit {
       completed: false,
       userId: 1,
       id: new Date().getTime(),
+      tags: [],
     });
 
     this.todoTitle = '';

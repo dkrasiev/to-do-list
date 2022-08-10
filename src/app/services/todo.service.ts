@@ -21,6 +21,9 @@ export class TodoService {
   loadTodos() {
     return this.http.get<ITodo[]>(this.url).pipe(
       tap((todos) => {
+        for (let todo of todos) {
+          if (!todo.tags) todo.tags = [];
+        }
         this.todos$.next(todos);
       })
     );

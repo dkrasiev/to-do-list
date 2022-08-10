@@ -1,24 +1,58 @@
-<div class="todo-item">
-  <app-checkbox
-    [value]="todo.completed"
-    (valueChange)="todo.completed = $event"
-  ></app-checkbox>
+<div
+  class="todo-item"
+  (mouseover)="mouseover = true"
+  (mouseleave)="mouseover = false"
+>
+  <div class="col" style="flex: 1">
+    <div class="row">
+      <app-checkbox
+        [value]="todo.completed"
+        (valueChange)="todo.completed = $event"
+      ></app-checkbox>
 
-  <input
-    class="todo-item__title"
-    type="text"
-    [(ngModel)]="inputTitle"
-    [ngClass]="{ completed: todo.completed }"
-    [placeholder]="todo.title"
-    required
-    (blur)="onBlur()"
-    (keyup.enter)="el.blur()"
-    #el
-  />
+      <input
+        class="todo-item__title"
+        type="text"
+        [(ngModel)]="inputTitle"
+        [ngClass]="{ completed: todo.completed }"
+        [placeholder]="todo.title"
+        required
+        (blur)="onBlur()"
+        (keyup.enter)="el.blur()"
+        #el
+      />
 
-  <div class="todo-item__btns">
-    <button mat-icon-button (click)="deleteTodo()">
-      <mat-icon>delete</mat-icon>
-    </button>
+      <div class="todo-item__btns">
+        <button mat-icon-button (click)="deleteTodo()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="row animate"
+      [ngClass]="{ hide: !mouseover && todo.tags.length == 0 }"
+    >
+      <mat-chip-list #tags>
+        <mat-chip
+          *ngFor="let tag of todo.tags"
+          class="tag-list__item"
+          (removed)="removeTag(tag)"
+          [selectable]="false"
+        >
+          {{ tag }}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input
+          i18n-placeholder="@@netTagName"
+          class="tag-list__input"
+          placeholder="new tag..."
+          (blur)="addTag()"
+          (keyup.enter)="addTag()"
+          [(ngModel)]="tagInput"
+          [ngClass]="{ hide: !mouseover }"
+        />
+      </mat-chip-list>
+    </div>
   </div>
 </div>

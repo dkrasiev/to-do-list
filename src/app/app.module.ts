@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -20,7 +21,7 @@ import { TodoItemComponent } from './components/todo-list/todo-item/todo-item.co
 import { TodoFilterComponent } from './components/todo-filter/todo-filter.component';
 import { TodoFilterPipe } from './pipes/todo-filter.pipe';
 import { TodoSortingComponent } from './components/todo-sorting/todo-sorting.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { SidenavComponent } from './components/UI/sidenav/sidenav.component';
 import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
 import { GroupComponent } from './components/UI/group/group.component';
 
@@ -53,6 +54,7 @@ import { ModalComponent } from './components/UI/modal/modal.component';
     MatIconModule,
     MatSlideToggleModule,
     MatCardModule,
+    MatChipsModule,
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
