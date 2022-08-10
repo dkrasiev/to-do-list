@@ -31,7 +31,9 @@
 
     <div
       class="row animate"
-      [ngClass]="{ hide: !mouseover && todo.tags && todo.tags.length == 0 }"
+      [ngClass]="{
+        hide: !tagInputFocused && !mouseover && todo.tags?.length == 0
+      }"
     >
       <mat-chip-list #tags>
         <mat-chip
@@ -43,14 +45,16 @@
           {{ tag }}
           <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
+
         <input
-          i18n-placeholder="@@netTagName"
-          class="tag-list__input"
+          i18n-placeholder="@@newTagName"
+          class="tag-list__input animate"
           placeholder="new tag..."
-          (blur)="addTag()"
+          (focus)="tagInputFocused = true"
+          (blur)="addTag(); tagInputFocused = false"
           (keyup.enter)="addTag()"
           [(ngModel)]="tagInput"
-          [ngClass]="{ hide: !mouseover }"
+          [ngClass]="{ hide: !mouseover && !tagInputFocused }"
         />
       </mat-chip-list>
     </div>

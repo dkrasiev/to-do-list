@@ -9,10 +9,12 @@ import { ITodo } from 'src/app/types/todo';
 })
 export class TodoItemComponent implements OnInit {
   @Input() todo!: ITodo;
-  mouseover: boolean = false;
 
   inputTitle: string = '';
   tagInput: string = '';
+
+  tagInputFocused: boolean = false;
+  mouseover: boolean = false;
 
   constructor(private todoService: TodoService) {}
 

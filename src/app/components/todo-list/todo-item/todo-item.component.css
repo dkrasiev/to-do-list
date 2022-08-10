@@ -90,9 +90,9 @@ input:focus {
   border: none;
 }
 
-.hide * {
+/* .hide * {
   display: none;
-}
+} */
 
 .animate {
   transition: 0.2s;

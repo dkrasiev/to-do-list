@@ -14,7 +14,7 @@
     "msgFilterAll": "all",
     "msgFilterCompleted": "completed",
     "msgFilterIncompleted": "incompleted",
-    "netTagName": "new tag...",
+    "newTagName": "new tag...",
     "newTodoName": "new todo...",
     "noTodos": "No todos found.",
     "sortingBy": "Sorting by",
