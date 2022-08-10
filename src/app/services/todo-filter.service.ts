@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ITodo } from '../types/todo';
 import { ITodoFilter } from '../types/todo-filter';
 
 @Injectable({
@@ -14,7 +13,7 @@ export class TodoFilterService {
 
   constructor() {}
 
-  setFilters(filters: ITodoFilter) {
-    this.filter$.next(filters);
+  setFilter(filter: ITodoFilter) {
+    this.filter$.next(filter);
   }
 }

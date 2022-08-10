@@ -21,6 +21,6 @@ export class TodoFilterComponent implements OnInit {
       completeFilter: this.completeFilter,
     };
 
-    this.todoFilterService.setFilters(filter);
+    this.todoFilterService.setFilter(filter);
   }
 }
