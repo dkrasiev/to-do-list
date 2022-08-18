@@ -19,6 +19,31 @@
 
 <app-sidenav appStopPropagation>
   <div class="sidenav-content">
+    <app-group i18n-title="account" title="ACCOUNT" titleAlign="center">
+      <div *ngIf="auth.user | async; else noUser">
+        <div>
+          <div>
+            {{ (auth.user | async)?.displayName }}
+          </div>
+          <div>
+            {{ (auth.user | async)?.email }}
+          </div>
+        </div>
+        <button
+          i18n="accountExit"
+          mat-button
+          (click)="auth.signOut()"
+          style="width: 100%"
+        >
+          Exit
+        </button>
+      </div>
+      <ng-template #noUser i18n="notLoggedIn">
+        Your are not logged in
+      </ng-template>
+
+      <firebase-ui></firebase-ui>
+    </app-group>
     <app-group
       i18n-title="@@usersFeatures"
       title="USERS FEATURES"
@@ -37,7 +62,7 @@
       title="FOR TESTING"
       titleAlign="center"
     >
-      <button i18n="@@loadTodos" mat-button (click)="loadTodos()">
+      <button i18n="@@loadTodos" mat-button (click)="getTodos()">
         load todos
       </button>
       <button i18n="@@clearTodos" mat-button (click)="clearTodos()">

@@ -25,8 +25,6 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.todoService.getTodos().subscribe();
-
     this.darkModeService.darkMode$.subscribe(
       (state) => (this.isDarkMode = state)
     );
@@ -36,8 +34,8 @@ export class AppComponent implements OnInit {
     });
   }
 
-  loadTodos() {
-    this.todoService.loadTodos().subscribe();
+  getTodos() {
+    this.todoService.getMockedTodos();
   }
 
   clearTodos() {

@@ -25,7 +25,7 @@ export class TodoItemComponent implements OnInit {
         set(todo, prop, value) {
           const result = Reflect.set(todo, prop, value);
 
-          context.todoService.setTodo(todo.id, todo);
+          context.todoService.updateTodo(todo.id, todo);
 
           return result;
         },

@@ -19,10 +19,13 @@ export class TodoFilterService {
     this.todoService.todos$.subscribe((todos) => {
       const availableTags = new Set<string>();
 
-      for (let todo of todos) {
-        if (todo.tags && todo.tags.length > 0) {
-          for (let tag of todo.tags) {
-            availableTags.add(tag);
+      if (todos) {
+        console.log(todos);
+        for (let todo of todos) {
+          if (todo.tags && todo.tags.length > 0) {
+            for (let tag of todo.tags) {
+              availableTags.add(tag);
+            }
           }
         }
       }
