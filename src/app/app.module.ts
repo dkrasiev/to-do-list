@@ -5,16 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
-
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideDatabase, getDatabase } from '@angular/fire/database';
-
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-list/todo-item/todo-item.component';
@@ -24,10 +14,11 @@ import { TodoSortingComponent } from './components/todo-sorting/todo-sorting.com
 import { SidenavComponent } from './components/UI/sidenav/sidenav.component';
 import { CheckboxComponent } from './components/UI/checkbox/checkbox.component';
 import { GroupComponent } from './components/UI/group/group.component';
-
-import { environment } from '../environments/environment';
-import { StopPropagationDirective } from './directives/stop-propagation.directive';
 import { ModalComponent } from './components/UI/modal/modal.component';
+import { StopPropagationDirective } from './directives/stop-propagation.directive';
+
+import { MaterialModule } from './shared/material.module';
+import { FirebaseModule } from './shared/firebase.module';
 
 @NgModule({
   declarations: [
@@ -50,15 +41,8 @@ import { ModalComponent } from './components/UI/modal/modal.component';
     FormsModule,
     ReactiveFormsModule,
 
-    MatButtonModule,
-    MatIconModule,
-    MatSlideToggleModule,
-    MatCardModule,
-    MatChipsModule,
-
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase()),
+    MaterialModule,
+    FirebaseModule,
   ],
   providers: [TodoFilterPipe],
   bootstrap: [AppComponent],

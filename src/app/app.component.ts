@@ -3,6 +3,8 @@ import { LayoutService } from './services/layout.service';
 import { TodoService } from './services/todo.service';
 import { DarkModeService } from './services/dark-mode.service';
 
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,7 +20,8 @@ export class AppComponent implements OnInit {
   constructor(
     private todoService: TodoService,
     private darkModeService: DarkModeService,
-    private layoutService: LayoutService
+    private layoutService: LayoutService,
+    public auth: AngularFireAuth
   ) {}
 
   ngOnInit(): void {
