@@ -1,5 +1,18 @@
 @import "~firebaseui/dist/firebaseui.css";
 
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$light-primary: mat-palette($mat-indigo);
+$light-accent: mat-palette($mat-gray);
+$light-theme: mat-light-theme($light-primary, $light-accent);
+
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent: mat-palette($mat-blue-grey);
+$dark-warn: mat-palette($mat-deep-orange);
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
 * {
   margin: 0;
   padding: 0;
@@ -27,6 +40,8 @@ body.dark-mode select {
 
   background-color: var(--main-color);
   color: var(--second-color);
+
+  @include angular-material-theme($dark-theme);
 }
 
 body.light-mode,
@@ -37,4 +52,6 @@ body.light-mode select {
 
   background-color: var(--main-color);
   color: var(--second-color);
+
+  @include angular-material-theme($light-theme);
 }
