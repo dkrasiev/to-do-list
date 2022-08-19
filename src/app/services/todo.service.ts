@@ -4,7 +4,7 @@ import {
   AngularFireDatabase,
   snapshotChanges,
 } from '@angular/fire/compat/database';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable } from 'rxjs';
 import { ITodo } from '../types/todo';
 
 import firebase from 'firebase/compat/app';
@@ -115,9 +115,11 @@ export class TodoService {
   }
 
   getMockedTodos() {
-    this.http
-      .get<ITodo[]>(this.url)
-      .subscribe((todos) => this.todos$.next(todos));
+    this.isLoading$.next(true);
+    this.http.get<ITodo[]>(this.url).subscribe((todos) => {
+      this.todos$.next(todos);
+      this.isLoading$.next(false);
+    });
   }
 
   clearTodos() {

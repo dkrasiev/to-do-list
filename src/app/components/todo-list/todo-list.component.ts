@@ -69,7 +69,7 @@ export class TodoListComponent implements OnInit {
     this.todoService.loadTodos();
 
     this.todoService.todos$.subscribe((todos) => {
-      this.todos = todos.filter((todo) => todo.userId == 1);
+      this.todos = todos;
     });
 
     this.todoFilterService.filter$.subscribe((filter) => {
