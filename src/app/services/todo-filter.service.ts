@@ -20,7 +20,6 @@ export class TodoFilterService {
       const availableTags = new Set<string>();
 
       if (todos) {
-        console.log(todos);
         for (let todo of todos) {
           if (todo.tags && todo.tags.length > 0) {
             for (let tag of todo.tags) {

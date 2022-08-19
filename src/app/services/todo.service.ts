@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { BehaviorSubject } from 'rxjs';
+import {
+  AngularFireDatabase,
+  snapshotChanges,
+} from '@angular/fire/compat/database';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ITodo } from '../types/todo';
 
 import firebase from 'firebase/compat/app';
@@ -14,6 +17,7 @@ export class TodoService {
   url = 'https://jsonplaceholder.typicode.com/todos';
   currentUser: firebase.User | null = null;
   todos$: BehaviorSubject<ITodo[]> = new BehaviorSubject<ITodo[]>([]);
+  isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   get dbTodos() {
     if (!this.currentUser) return null;
@@ -28,36 +32,10 @@ export class TodoService {
   ) {
     this.todos$.subscribe(() => this.saveTodo());
 
-    auth.authState.subscribe((user) => {
+    this.auth.onAuthStateChanged((user) => {
       this.currentUser = user;
-      if (user) {
-        this.loadTodos();
-      }
+      this.loadTodos();
     });
-  }
-
-  loadTodos() {
-    if (this.currentUser) {
-      this.dbTodos?.query.get().then((snapshot) => {
-        const todos = snapshot.val();
-        if (todos) this.todos$.next(todos);
-      });
-    } else {
-      const localTodos = localStorage.getItem('todos');
-      if (localTodos) this.todos$.next(JSON.parse(localTodos));
-    }
-  }
-
-  getMockedTodos() {
-    this.http
-      .get<ITodo[]>(this.url)
-      .subscribe((todos) => this.todos$.next(todos));
-  }
-
-  clearTodos() {
-    this.todos$.next([]);
-
-    this.saveTodo();
   }
 
   updateTodo(id: number, todo: ITodo) {
@@ -82,30 +60,65 @@ export class TodoService {
     this.todos$.next(this.todos$.value.filter((todo) => todo.id !== id));
   }
 
-  async getTodos(): Promise<ITodo[]> {
-    if (this.currentUser) {
-      const snapshot = await this.dbTodos?.query.get();
-      return snapshot?.val();
-    } else {
-      return new Promise((resolve, reject) => {
-        const localTodos = localStorage.getItem('todos');
-        const result = localTodos ? JSON.parse(localTodos) : [];
+  loadTodos(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.isLoading$.next(true);
 
-        resolve(result);
-      });
-    }
+      this.getTodosFromDatabase()
+        .then((todos) => {
+          if (todos) {
+            this.todos$.next(todos);
+          } else {
+            this.todos$.next(this.getTodosFromLocalStorage());
+          }
+
+          this.isLoading$.next(false);
+          resolve();
+        })
+        .catch((e) => console.log(e.message));
+    });
   }
 
-  async saveTodo() {
-    const todos = this.todos$.value;
+  getTodosFromLocalStorage() {
+    const localTodos = localStorage.getItem('todos');
+
+    return localTodos ? JSON.parse(localTodos) : [];
+  }
+
+  async getTodosFromDatabase() {
     const user = await this.auth.currentUser;
+
+    if (!user) {
+      return;
+    }
+
+    const snapshot = await this.dbTodos?.query.get();
+    const todos = snapshot?.val();
+
+    return todos || [];
+  }
+
+  saveTodo() {
+    const todos = this.todos$.value;
 
     if (!todos) return;
 
-    if (user) {
-      this.db.list(`todos`).set(user.uid, todos);
+    if (this.currentUser) {
+      this.db.list(`todos`).set(this.currentUser.uid, todos);
     } else {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
+  }
+
+  getMockedTodos() {
+    this.http
+      .get<ITodo[]>(this.url)
+      .subscribe((todos) => this.todos$.next(todos));
+  }
+
+  clearTodos() {
+    this.todos$.next([]);
+
+    this.saveTodo();
   }
 }

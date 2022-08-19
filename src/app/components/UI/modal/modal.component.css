@@ -14,7 +14,7 @@
   z-index: 100;
 }
 
-.modal__content {
+.modal__body {
   background-color: var(--main-color);
   border-radius: 16px;
   padding: 16px;
@@ -39,4 +39,17 @@
   position: absolute;
   top: 16px;
   right: 16px;
+}
+
+.modal__content {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
 }

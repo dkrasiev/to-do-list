@@ -40,6 +40,7 @@ export class TodoListComponent implements OnInit {
 
   todos: ITodo[] = [];
   filter: ITodoFilter = {} as ITodoFilter;
+  isLoading: boolean = false;
 
   get filteredTodos(): ITodo[] {
     return this.todoFilter.transform(this.todos, this.filter);
@@ -73,6 +74,10 @@ export class TodoListComponent implements OnInit {
 
     this.todoFilterService.filter$.subscribe((filter) => {
       this.filter = filter;
+    });
+
+    this.todoService.isLoading$.subscribe((loadingState) => {
+      this.isLoading = loadingState;
     });
   }
 

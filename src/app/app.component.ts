@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   isDarkMode: boolean = false;
   isSidenavOpen: boolean = false;
 
-  isModalOpen = false;
+  isLoginWindowOpen = false;
 
   constructor(
     private todoService: TodoService,
@@ -31,6 +31,10 @@ export class AppComponent implements OnInit {
 
     this.layoutService.sidenav$.subscribe((state) => {
       this.isSidenavOpen = state;
+    });
+
+    this.auth.onAuthStateChanged((user) => {
+      if (user) this.isLoginWindowOpen = false;
     });
   }
 
@@ -48,6 +52,10 @@ export class AppComponent implements OnInit {
       : this.darkModeService.disable();
   }
 
+  onLogOut() {
+    this.auth.signOut();
+  }
+
   toggleSidenav() {
     this.layoutService.toggle();
   }
@@ -56,7 +64,7 @@ export class AppComponent implements OnInit {
     this.layoutService.close();
   }
 
-  openModal() {
-    this.isModalOpen = true;
+  openLoginWindow() {
+    this.isLoginWindowOpen = true;
   }
 }
