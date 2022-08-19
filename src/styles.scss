@@ -4,7 +4,7 @@
 
 @include mat-core();
 
-$light-primary: mat-palette($mat-indigo);
+$light-primary: mat-palette($mat-gray);
 $light-accent: mat-palette($mat-gray);
 $light-theme: mat-light-theme($light-primary, $light-accent);
 
