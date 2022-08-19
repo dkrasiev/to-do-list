@@ -19,6 +19,8 @@ export class TodoService {
   todos$: BehaviorSubject<ITodo[]> = new BehaviorSubject<ITodo[]>([]);
   isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+  firstLoad = true;
+
   get dbTodos() {
     if (!this.currentUser) return null;
 
@@ -30,7 +32,11 @@ export class TodoService {
     private auth: AngularFireAuth,
     private db: AngularFireDatabase
   ) {
-    this.todos$.subscribe(() => this.saveTodo());
+    this.todos$.subscribe(() => {
+      if (!this.firstLoad) this.saveTodo();
+
+      this.firstLoad = false;
+    });
 
     this.auth.onAuthStateChanged((user) => {
       this.currentUser = user;
@@ -66,11 +72,10 @@ export class TodoService {
 
       this.getTodosFromDatabase()
         .then((todos) => {
-          if (todos) {
-            this.todos$.next(todos);
-          } else {
-            this.todos$.next(this.getTodosFromLocalStorage());
-          }
+          console.log(todos);
+          todos = todos || this.getTodosFromLocalStorage();
+
+          this.todos$.next(todos);
 
           this.isLoading$.next(false);
           resolve();
@@ -81,6 +86,8 @@ export class TodoService {
 
   getTodosFromLocalStorage() {
     const localTodos = localStorage.getItem('todos');
+
+    console.log(localTodos);
 
     return localTodos ? JSON.parse(localTodos) : [];
   }
