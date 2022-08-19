@@ -1,12 +1,15 @@
 {
   "locale": "en",
   "translations": {
+    "account": "ACCOUNT",
+    "accountExit": " Exit ",
+    "notLoggedIn": "Your are not logged in",
+    "accountLogin": " Login ",
     "usersFeatures": "USERS FEATURES",
     "darkmode": "dark mode",
     "forTesting": "FOR TESTING",
     "loadTodos": " load todos ",
     "clearTodos": " clear todos ",
-    "openModal": " open modal ",
     "appTitle": "todo list",
     "menu": "Menu",
     "filters": "Filters",

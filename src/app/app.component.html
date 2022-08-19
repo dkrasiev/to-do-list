@@ -19,7 +19,7 @@
 
 <app-sidenav appStopPropagation>
   <div class="sidenav-content">
-    <app-group i18n-title="account" title="ACCOUNT" titleAlign="center">
+    <app-group i18n-title="@@account" title="ACCOUNT" titleAlign="center">
       <div *ngIf="auth.user | async; else noUser">
         <div>
           <div>
@@ -30,7 +30,7 @@
           </div>
         </div>
         <button
-          i18n="accountExit"
+          i18n="@@accountExit"
           mat-button
           (click)="onLogOut()"
           style="width: 100%"
@@ -39,8 +39,8 @@
         </button>
       </div>
       <ng-template #noUser>
-        <div i18n="notLoggedIn">Your are not logged in</div>
-        <button i18n="accountLogin" mat-button (click)="openLoginWindow()">
+        <div i18n="@@notLoggedIn">Your are not logged in</div>
+        <button i18n="@@accountLogin" mat-button (click)="openLoginWindow()">
           Login
         </button>
       </ng-template>

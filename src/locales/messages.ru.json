@@ -1,6 +1,10 @@
 {
   "locale": "ru",
   "translations": {
+    "account": "АККАУНТ",
+    "accountExit": " Выйти ",
+    "notLoggedIn": "Вы не зашли в аккаунт",
+    "accountLogin": " Войти ",
     "usersFeatures": "ПОЛЬЗОВАТЕЛЬСКИЕ ОПЦИИ",
     "darkmode": "Темный режим",
     "forTesting": "ДЛЯ ТЕСТИРОВАНИЯ",

@@ -72,7 +72,6 @@ export class TodoService {
 
       this.getTodosFromDatabase()
         .then((todos) => {
-          console.log(todos);
           todos = todos || this.getTodosFromLocalStorage();
 
           this.todos$.next(todos);
@@ -86,8 +85,6 @@ export class TodoService {
 
   getTodosFromLocalStorage() {
     const localTodos = localStorage.getItem('todos');
-
-    console.log(localTodos);
 
     return localTodos ? JSON.parse(localTodos) : [];
   }
