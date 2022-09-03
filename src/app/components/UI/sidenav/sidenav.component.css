@@ -4,16 +4,18 @@
   top: 0px;
   bottom: 0px;
 
-  width: 0px;
-  padding: 0;
+  width: 200px;
+  max-width: 100vw;
+
+  padding: 0 8px;
   z-index: 50;
   overflow: hidden;
   box-shadow: 1px 0px;
 
   background-color: var(--main-color);
 
+  transform: translateX(-200px);
   transition: all 0.5s ease;
-  transition-property: width, padding;
 }
 
 .sidenav > * {
@@ -21,11 +23,7 @@
 }
 
 .open {
-  max-width: 100vw;
-  width: 200px;
-
-  padding-left: 8px;
-  padding-right: 8px;
+  transform: translateX(0);
 }
 
 .sidenav__header {

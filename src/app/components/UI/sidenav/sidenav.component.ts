@@ -18,6 +18,6 @@ export class SidenavComponent implements OnInit {
   }
 
   close() {
-    this.layoutService.close();
+    this.layoutService.closeSidenav();
   }
 }

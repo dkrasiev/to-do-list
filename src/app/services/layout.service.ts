@@ -9,11 +9,15 @@ export class LayoutService {
 
   constructor() {}
 
-  toggle() {
+  openSidenav() {
+    this.sidenav$.next(true);
+  }
+
+  toggleSidenav() {
     this.sidenav$.next(!this.sidenav$.value);
   }
 
-  close() {
+  closeSidenav() {
     this.sidenav$.next(false);
   }
 }

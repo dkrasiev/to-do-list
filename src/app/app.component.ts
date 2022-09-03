@@ -56,12 +56,12 @@ export class AppComponent implements OnInit {
     this.auth.signOut();
   }
 
-  toggleSidenav() {
-    this.layoutService.toggle();
+  openSidenav() {
+    this.layoutService.openSidenav();
   }
 
   closeSidenav() {
-    this.layoutService.close();
+    this.layoutService.closeSidenav();
   }
 
   openLoginWindow() {
