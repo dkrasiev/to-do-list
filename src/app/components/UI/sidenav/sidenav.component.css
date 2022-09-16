@@ -4,7 +4,7 @@
   top: 0px;
   bottom: 0px;
 
-  width: 200px;
+  min-width: 200px;
   max-width: 100vw;
 
   padding: 0 8px;
@@ -14,7 +14,7 @@
 
   background-color: var(--main-color);
 
-  transform: translateX(-200px);
+  transform: translateX(calc(-100% - 1px));
   transition: all 0.5s ease;
 }
 
