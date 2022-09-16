@@ -23,6 +23,9 @@
       />
 
       <div class="todo-item__btns">
+        <button mat-icon-button (click)="tagInputEl.focus()">
+          <mat-icon>add</mat-icon>
+        </button>
         <button mat-icon-button (click)="deleteTodo()">
           <mat-icon>delete</mat-icon>
         </button>
@@ -32,7 +35,7 @@
     <div
       class="row animate"
       [ngClass]="{
-        hide: !tagInputFocused && !mouseover && todo.tags?.length == 0
+        hide: todo.tags?.length == 0 && !tagInputFocused
       }"
     >
       <mat-chip-list #tags>
@@ -47,6 +50,7 @@
         </mat-chip>
 
         <input
+          #tagInputEl
           i18n-placeholder="@@newTagName"
           class="tag-list__input animate"
           placeholder="new tag..."
@@ -54,7 +58,9 @@
           (blur)="addTag(); tagInputFocused = false"
           (keyup.enter)="addTag()"
           [(ngModel)]="tagInput"
-          [ngClass]="{ hide: !mouseover && !tagInputFocused }"
+          [ngClass]="{
+            hide: !tagInputFocused
+          }"
         />
       </mat-chip-list>
     </div>
