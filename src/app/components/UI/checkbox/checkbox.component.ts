@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 
 @Component({
@@ -6,23 +6,19 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.css'],
 })
-export class CheckboxComponent implements OnInit {
-  @Input() value: boolean = false;
-  @Output() valueChange: EventEmitter<boolean> = new EventEmitter<boolean>(
+export class CheckboxComponent {
+  @Input()
+  public value: boolean = false;
+  @Output()
+  private valueChange: EventEmitter<boolean> = new EventEmitter<boolean>(
     false
   );
 
-  darkmode: boolean = false;
+  public darkmode$ = this.darkModeService.darkMode$;
 
   constructor(private darkModeService: DarkModeService) {}
 
-  ngOnInit(): void {
-    this.darkModeService.darkMode$.subscribe((darkmode) => {
-      this.darkmode = darkmode;
-    });
-  }
-
-  onClick() {
+  public onClick() {
     this.valueChange.emit(!this.value);
   }
 }
