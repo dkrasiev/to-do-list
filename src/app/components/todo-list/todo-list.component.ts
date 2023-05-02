@@ -5,13 +5,13 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Observable, combineLatest, map } from 'rxjs';
+import { Todo } from 'src/app/models/todo';
 import { TodoFilterPipe } from 'src/app/pipes/todo-filter.pipe';
 import { TodoFilterService } from 'src/app/services/todo-filter.service';
 import { TodoSortingService } from 'src/app/services/todo-sorting.service';
 import { TodoService } from 'src/app/services/todo.service';
-import { ITodo } from 'src/app/types/todo';
-import { ITodoFilter } from 'src/app/types/todo-filter';
 
 @Component({
   selector: 'app-todo-list',
@@ -35,28 +35,29 @@ import { ITodoFilter } from 'src/app/types/todo-filter';
     ]),
   ],
 })
-export class TodoListComponent implements OnInit {
-  @Input() addInput: boolean = true;
+export class TodoListComponent {
+  @Input() public addInput: boolean = true;
 
-  todos: ITodo[] = [];
-  filter: ITodoFilter = {} as ITodoFilter;
+  public todos$ = this.todoService.todos$;
+
   isLoading: boolean = false;
 
-  get filteredTodos(): ITodo[] {
-    return this.todoFilter.transform(this.todos, this.filter);
-  }
-
-  get filteredAndSortedTodos(): ITodo[] {
-    return this.todoSortingService.sort(this.filteredTodos);
-  }
-
-  get restTodos(): ITodo[] {
-    return this.todos.filter(
-      (a) => !this.filteredAndSortedTodos.find((b) => a == b)
+  public get transformedTodos$(): Observable<Todo[]> {
+    return combineLatest([this.todos$, this.todoFilterService.filter$]).pipe(
+      map(([todos, filter]) => this.todoFilter.transform(todos, filter)),
+      map((todos) => this.todoSortingService.sort(todos))
     );
   }
 
-  todoTitle: string = '';
+  public get restTodos$(): Observable<Todo[]> {
+    return combineLatest([this.todos$, this.transformedTodos$]).pipe(
+      map(([actual, filtered]) =>
+        actual.filter((todo) => filtered.includes(todo) === false)
+      )
+    );
+  }
+
+  public todoTitle: string = '';
 
   constructor(
     private todoService: TodoService,
@@ -65,29 +66,13 @@ export class TodoListComponent implements OnInit {
     private todoSortingService: TodoSortingService
   ) {}
 
-  ngOnInit(): void {
-    this.todoService.loadTodos();
-
-    this.todoService.todos$.subscribe((todos) => {
-      this.todos = todos;
-    });
-
-    this.todoFilterService.filter$.subscribe((filter) => {
-      this.filter = filter;
-    });
-
-    this.todoService.isLoading$.subscribe((loadingState) => {
-      this.isLoading = loadingState;
-    });
-  }
-
-  addTodo() {
+  public addTodo() {
     if (!this.todoTitle.trim()) {
       this.todoTitle = '';
       return;
     }
 
-    this.todoService.addTodo({
+    this.todoService.create({
       title: this.todoTitle,
       completed: false,
       userId: 1,
@@ -96,5 +81,9 @@ export class TodoListComponent implements OnInit {
     });
 
     this.todoTitle = '';
+  }
+
+  public trackById(index: number, todo: Todo): number {
+    return todo.id;
   }
 }

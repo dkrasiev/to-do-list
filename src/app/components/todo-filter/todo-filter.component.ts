@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoFilterService } from 'src/app/services/todo-filter.service';
-import { ITodoFilter } from 'src/app/types/todo-filter';
+import { ITodoFilter } from 'src/app/models/todo-filter';
 
 @Component({
   selector: 'app-todo-filter',

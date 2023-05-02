@@ -1,15 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ITodo } from '../types/todo';
-import { ITodoFilter } from '../types/todo-filter';
+import { Todo } from '../models/todo';
+import { ITodoFilter } from '../models/todo-filter';
 
 @Pipe({
   name: 'todoFilter',
 })
 export class TodoFilterPipe implements PipeTransform {
   transform(
-    todos: ITodo[],
+    todos: Todo[],
     { searchQuery = '', completeFilter = '', tags = [] }: ITodoFilter
-  ): ITodo[] {
+  ): Todo[] {
     return todos.filter((v) => {
       let searchResult = v.title
         .toLowerCase()

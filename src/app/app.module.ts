@@ -18,7 +18,6 @@ import { ModalComponent } from './components/UI/modal/modal.component';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
 
 import { MaterialModule } from './shared/material.module';
-import { FirebaseModule } from './shared/firebase.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +41,6 @@ import { FirebaseModule } from './shared/firebase.module';
     ReactiveFormsModule,
 
     MaterialModule,
-    FirebaseModule,
   ],
   providers: [TodoFilterPipe],
   bootstrap: [AppComponent],

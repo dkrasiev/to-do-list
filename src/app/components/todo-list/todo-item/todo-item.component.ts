@@ -1,14 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Todo } from 'src/app/models/todo';
 import { TodoService } from 'src/app/services/todo.service';
-import { ITodo } from 'src/app/types/todo';
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css'],
 })
-export class TodoItemComponent implements OnInit {
-  @Input() todo!: ITodo;
+export class TodoItemComponent {
+  @Input() todo!: Todo;
 
   inputTitle: string = '';
   tagInput: string = '';
@@ -18,46 +18,32 @@ export class TodoItemComponent implements OnInit {
 
   constructor(private todoService: TodoService) {}
 
-  ngOnInit(): void {
-    const context = this;
-    setTimeout(() => {
-      this.todo = new Proxy(this.todo, {
-        set(todo, prop, value) {
-          const result = Reflect.set(todo, prop, value);
-
-          context.todoService.updateTodo(todo.id, todo);
-
-          return result;
-        },
-      });
-    }, 0);
-
-    this.inputTitle = this.todo.title;
+  public deleteTodo() {
+    this.todoService.delete(this.todo.id);
   }
 
-  deleteTodo() {
-    this.todoService.deleteTodo(this.todo.id);
-  }
-
-  onBlur() {
+  public onBlur() {
     if (this.inputTitle) this.todo.title = this.inputTitle.trim();
 
     this.inputTitle = this.todo.title;
   }
 
-  removeTag(tag: string) {
-    this.todo.tags = this.todo.tags?.filter((v) => v !== tag);
-  }
-
-  addTag() {
-    const value = this.tagInput.trim();
+  public addTag() {
+    const tag = this.tagInput.trim();
 
     if (!this.todo.tags) this.todo.tags = [];
 
-    if (value && !this.todo.tags?.includes(value)) this.todo.tags?.push(value);
+    if (tag && !this.todo.tags?.includes(tag)) {
+      this.todo.tags?.push(tag);
+    }
 
     this.tagInput = '';
+  }
 
-    this.todo.tags = this.todo.tags;
+  public removeTag(tag: string) {
+    this.todoService.update(this.todo.id, {
+      ...this.todo,
+      tags: this.todo.tags?.filter((v) => v !== tag),
+    });
   }
 }

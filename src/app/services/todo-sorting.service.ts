@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ITodo } from '../types/todo';
-import { ITodoSort } from '../types/todo-sort';
+import { Todo } from '../models/todo';
+import { ITodoSort } from '../models/todo-sort';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class TodoSortingService {
     this.sorting$.next(value);
   }
 
-  sort(todos: ITodo[]): ITodo[] {
+  sort(todos: Todo[]): Todo[] {
     const sortingMethod = this.getSorting();
     let sortedTodos = todos;
 
@@ -30,12 +30,12 @@ export class TodoSortingService {
   getSorting() {
     switch (this.sorting$.value.value) {
       case 'title':
-        return (a: ITodo, b: ITodo) =>
+        return (a: Todo, b: Todo) =>
           a.title.toLowerCase().localeCompare(b.title.toLowerCase());
       case 'id':
-        return (a: ITodo, b: ITodo) => b.id - a.id;
+        return (a: Todo, b: Todo) => b.id - a.id;
       case 'completed':
-        return (a: ITodo, b: ITodo) =>
+        return (a: Todo, b: Todo) =>
           (a.completed ? 1 : 0) - (b.completed ? 1 : 0);
     }
 

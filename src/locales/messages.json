@@ -8,7 +8,7 @@
     "usersFeatures": "USERS FEATURES",
     "darkmode": "dark mode",
     "forTesting": "FOR TESTING",
-    "loadTodos": " load todos ",
+    "loadTodos": " fetch mocked todos ",
     "clearTodos": " clear todos ",
     "appTitle": "todo list",
     "menu": "Menu",

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ITodoFilter } from '../types/todo-filter';
+import { ITodoFilter } from '../models/todo-filter';
 import { TodoService } from './todo.service';
 
 @Injectable({

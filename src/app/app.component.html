@@ -13,13 +13,9 @@
   </div>
 </div>
 
-<app-modal [(state)]="isLoginWindowOpen" title="login">
-  <firebase-ui></firebase-ui>
-</app-modal>
-
 <app-sidenav appStopPropagation>
   <div class="sidenav-content">
-    <app-group i18n-title="@@account" title="ACCOUNT" titleAlign="center">
+    <!-- <app-group i18n-title="@@account" title="ACCOUNT" titleAlign="center">
       <div *ngIf="auth.user | async; else noUser">
         <div>
           <div>
@@ -44,9 +40,7 @@
           Login
         </button>
       </ng-template>
-
-      <!-- <firebase-ui></firebase-ui> -->
-    </app-group>
+    </app-group> -->
     <app-group
       i18n-title="@@usersFeatures"
       title="USERS FEATURES"
@@ -55,18 +49,19 @@
       <mat-slide-toggle
         i18n="@@darkmode"
         style="margin: auto"
-        [(ngModel)]="isDarkMode"
-        (change)="onDarkModeChange()"
-        >dark mode</mat-slide-toggle
+        [checked]="darkMode$ | async"
+        (change)="toggleDarkMode()"
       >
+        dark mode
+      </mat-slide-toggle>
     </app-group>
     <app-group
       i18n-title="@@forTesting"
       title="FOR TESTING"
       titleAlign="center"
     >
-      <button i18n="@@loadTodos" mat-button (click)="getTodos()">
-        load todos
+      <button i18n="@@loadTodos" mat-button (click)="fetchMockedTodos()">
+        fetch mock todos
       </button>
       <button i18n="@@clearTodos" mat-button (click)="clearTodos()">
         clear todos

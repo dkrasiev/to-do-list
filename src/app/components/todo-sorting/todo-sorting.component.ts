@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoSortingService } from 'src/app/services/todo-sorting.service';
-import { ITodoSort } from 'src/app/types/todo-sort';
+import { ITodoSort } from 'src/app/models/todo-sort';
 
 @Component({
   selector: 'app-todo-sorting',

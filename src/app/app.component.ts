@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LayoutService } from './services/layout.service';
 import { TodoService } from './services/todo.service';
 import { DarkModeService } from './services/dark-mode.service';
-
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Todo } from './models/todo';
+import { Observable, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -12,59 +13,50 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AppComponent implements OnInit {
   title = $localize`:@@appTitle:todo list`;
-  isDarkMode: boolean = false;
-  isSidenavOpen: boolean = false;
 
-  isLoginWindowOpen = false;
+  darkMode$ = this.darkModeService.darkMode$;
+  isSidenavOpen = this.layoutService.sidenav$;
 
   constructor(
     private todoService: TodoService,
     private darkModeService: DarkModeService,
     private layoutService: LayoutService,
-    public auth: AngularFireAuth
+    private http: HttpClient
   ) {}
 
-  ngOnInit(): void {
-    this.darkModeService.darkMode$.subscribe(
-      (state) => (this.isDarkMode = state)
-    );
-
-    this.layoutService.sidenav$.subscribe((state) => {
-      this.isSidenavOpen = state;
-    });
-
-    this.auth.onAuthStateChanged((user) => {
-      if (user) this.isLoginWindowOpen = false;
-    });
+  public ngOnInit(): void {
+    const todos = this.getLocalTodos();
+    this.todoService.setTodos(todos);
   }
 
-  getTodos() {
-    this.todoService.getMockedTodos();
-  }
-
-  clearTodos() {
+  public clearTodos() {
     this.todoService.clearTodos();
   }
 
-  onDarkModeChange() {
-    this.isDarkMode
-      ? this.darkModeService.enable()
-      : this.darkModeService.disable();
+  public toggleDarkMode() {
+    this.darkModeService.toggle();
   }
 
-  onLogOut() {
-    this.auth.signOut();
-  }
-
-  openSidenav() {
+  public openSidenav() {
     this.layoutService.openSidenav();
   }
 
-  closeSidenav() {
+  public closeSidenav() {
     this.layoutService.closeSidenav();
   }
 
-  openLoginWindow() {
-    this.isLoginWindowOpen = true;
+  public getLocalTodos(): Todo[] {
+    try {
+      return JSON.parse(localStorage.getItem('todos') || '[]');
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
+  }
+
+  public fetchMockedTodos() {
+    this.http
+      .get<Todo[]>('https://jsonplaceholder.typicode.com/todos')
+      .subscribe((todos) => this.todoService.setTodos(todos));
   }
 }
